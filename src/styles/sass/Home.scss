@@ -1,0 +1,389 @@
+// @keyframes animate {
+//     0%,100% {
+//         background-image: url(../../img/home1.jpg);
+//     }
+//     25% {
+//         background-image: url(../../img/home2.jpg);
+//     }
+//     50% {
+//         background-image: url(../../img/home3.jpg);
+//     }
+//     75% {
+//         background-image: url(../../img/pod1.jpg);
+//     }
+// }
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+.first-section {
+    height: 90vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: url(../../img/pod1.jpg);
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.outer {
+    position: absolute;
+    height: 90vh;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+.first-details {
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    color: $white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    h1 {
+        font-size: 3.5rem;
+        text-transform: capitalize;   
+    }
+    h3 {
+        margin: 1rem 0;
+    }
+}
+.box-home {
+    justify-content: space-between;
+   margin-top: 3rem;
+}
+.btn-home {
+    cursor: pointer;
+    width: 12rem;
+    background: transparent;
+    color: white;
+    padding: 15px;
+    border: 2px solid $secondary;
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+    font-size: 15px;
+    margin-right: 1rem;
+}
+.grid-container {
+    width: 80%;
+    margin: 4rem auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+}
+.grig-contained {
+    width: 100%;
+    background: $secondary-light;
+}
+.grid-contained {
+    width: 80%;
+    margin: 4rem auto;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+
+}
+.box-grid {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        text-transform: capitalize;
+    }
+    p {
+        margin: 2rem 0;
+        font-size: 1.5rem;
+    }
+}
+
+.grid1 {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    grid-row-gap: .5rem;
+    grid-column-gap: .5rem;
+    // @media screen and (max-width: 1100px){
+    //     grid-template-columns: repeat(1, 1fr);
+    // }
+    .image{
+        width: 10rem;
+        height: 25vh;
+        img{
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+}
+.podcast-sect {
+    width: 100%;
+    background: $cream-color;
+    min-height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    h1 {
+        font-size: 3rem;
+        text-transform: capitalize;
+    }
+    p {
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+}
+.podcast-sectext {
+    position: relative;
+    top: 2rem;
+}
+.counter {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+}
+.counter-content {
+    width: 20%;
+
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 400;
+    }
+}
+.count {
+    font-size: 2rem;
+}
+.articles {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    display: flex;
+}
+.gradient {
+    width: 100%;
+    height: 10rem;
+    background: $linear;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: $white;
+    position: relative;
+    display: flex;
+}
+.news {
+    width: 80%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.news-box {
+    width: 30rem;
+    padding: 0rem 0;
+    margin: 3rem 1rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    
+    img {
+        height: 50vh;
+        object-fit: cover;
+
+        @media screen and (max-width: 64em) {
+            height: 40vh;
+        }
+    }
+}
+.news-box1 {
+    bottom: 3rem;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 19rem;
+    height: 60vh;
+    background: $white;
+    box-shadow: $box-shadow;
+
+    h1 {
+        font-size: 1.2rem;
+        width: 70%;
+        margin: 1rem 0rem 1rem 1rem;
+        text-transform: capitalize;
+    }
+    p {
+        font-size: 1rem;
+        margin: 1rem 1rem 1rem 1rem;
+    }
+}
+.btn-news {
+    cursor: pointer;
+    width: 7rem;
+    background: transparent;
+    color: white;
+    padding: 9px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    margin: 1rem 0rem 1rem 1rem;
+}
+.news-bottom {
+    margin: 2rem 0rem 2rem 1rem;
+    display: flex;
+
+    img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50px;
+        margin-right: .5rem;
+    }
+    h4 {
+        font-weight: 400;
+    }
+}
+
+
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 64em) {
+    .first-details {
+        width: 80%;
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+    .btn-home {
+        font-size: 12px;
+        width: 8rem;
+    }
+    .grid-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .grid-contained {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+    .box-grid {
+        width: 100%;
+        h1 {
+            font-size: 2rem;
+            margin-top: 3rem;
+            text-transform: capitalize;
+        }
+        p {
+            margin: 1.5rem 0;
+            font-size: 1.2rem;
+        }
+    }
+    .podcast-sectext {
+        h1 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.2rem;
+        }
+    }
+    .gradient {
+        font-size: 1.5rem;
+    }
+    .grid1 {      
+        .image{
+            width: 15rem;
+            height: 20vh;
+        }
+    } 
+    .news {
+       flex-direction: column;
+    }
+    .news-box {
+        width: 100%;
+    }
+    .news-box1 {
+        width: 80%;
+        height: auto;
+        bottom: 5rem;
+    }
+}
+
+@media (max-width: 48em) {
+    .first-details {
+        h1 {
+            font-size: 2rem;
+        }
+        h3 {
+            font-size: .8rem;
+        }
+    }
+       .grid1 {      
+        .image{
+            width: 7rem;
+            height: 17vh;
+        }
+    } 
+    .box-grid {
+       
+        h1 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            text-transform: capitalize;
+        }
+        p {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+    }
+    .podcast-sectext {
+        h1 {
+            font-size: 1.7rem;
+        }
+        p {
+            font-size: 1rem;
+            
+        }
+    }
+    .gradient {
+        font-size: 1.3rem;
+    }
+    .counter-content {
+        h3 {
+            font-size: 1rem;
+        }
+    }
+    .count {
+        font-size: 1.6rem;
+    }
+    .news-box1 {
+        bottom: 3rem;
+    }
+    .news-box {
+        margin: 1rem 1rem;
+    }
+}

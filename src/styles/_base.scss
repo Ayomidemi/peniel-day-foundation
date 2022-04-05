@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    font-family: 'EB Garamond', serif; 
+}
+body::-webkit-scrollbar{ 
+    width: 8px;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: $primary;
+    border-radius: 50px;
+}
+body::-webkit-scrollbar-track{
+    background-color: $grey;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+link {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}

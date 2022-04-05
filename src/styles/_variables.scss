@@ -1,0 +1,30 @@
+$white: #ffffff;
+$cream-color: #fff9E5;
+$primary: #BF9200;
+$primary-light: #D4AF37;
+$secondary: #009346;
+$secondary-light: #E7FCF1;
+$grey: #808080;
+$black: rgb(66, 47, 47);
+$smoky-black: #414a4c;
+
+$font-family: 'EB Garamond', serif;
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&display=swap');
+
+$linear: linear-gradient(to right, rgba($secondary, 0.95), rgba($primary, 0.95));
+
+$header-height: 4.3rem;
+$header-tablet-height: 70px;
+$header-mobile-height: 40px;
+$header-shrink-height: 70px;
+
+
+
+$box-shadow: $cream-color 0px 4px 8px;
+
+
+$mobile-width: 600px;
+$tablet-width: 1024px;
+
+$numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8);

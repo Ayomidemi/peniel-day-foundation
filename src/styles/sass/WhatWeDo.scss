@@ -1,0 +1,53 @@
+.whatwedo {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+.what-banner {
+    height: 15rem;
+    background: url(../../img/podcast.jpg);
+    width: 100%;
+    background-position: cover;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+font-size: 3rem;
+color: $white;
+        text-transform: capitalize;
+}
+.what-container {
+    position: relative;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+ 
+}
+.what-card {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    p {
+        font-size: 1.3rem;
+        width: 70%;
+        margin: .5rem 0;
+    }
+}
+.what-svg {
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 1rem;
+}

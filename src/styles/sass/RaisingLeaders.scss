@@ -1,0 +1,41 @@
+.raising {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+.raising-banner {
+    height: 15rem;
+    background: url(../../img/podcast.jpg);
+    width: 100%;
+    background-position: cover;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+font-size: 2.5rem;
+color: $white;
+        text-transform: capitalize;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 64em) {
+    .raising-banner {
+        font-size: 1.8rem;
+    }
+ }
+
+ @media (max-width: 48em) {
+    .raising-banner {
+        font-size: 1.5rem;
+    }
+ }
+
+ @media (max-width: 40em) {
+    .raising-banner {
+        font-size: 1.2rem;
+    }
+ }

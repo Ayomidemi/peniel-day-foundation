@@ -1,0 +1,24 @@
+@import './styles/variables';
+@import './styles/base';
+@import './styles/mixins';
+
+
+@import './styles/sass/Home.scss';
+@import './styles/sass/About.scss';
+@import './styles/sass/Footer.scss';
+@import './styles/sass/NavBar.scss';
+@import './styles/sass/Team.scss';
+@import './styles/sass/OurCause.scss';
+@import './styles/sass/Podcast.scss';
+@import './styles/sass/Volunteer.scss';
+@import './styles/sass/MaidenProgram.scss';
+@import './styles/sass/LeaderShip.scss';
+@import './styles/sass/RaisingLeaders.scss';
+@import './styles/sass/PenielIntro.scss';
+@import './styles/sass/WhatWeDo.scss';
+@import './styles/sass/RoadMap.scss';
+
+
+.contain {
+    overflow: hidden;
+}

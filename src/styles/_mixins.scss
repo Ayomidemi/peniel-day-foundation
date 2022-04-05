@@ -1,0 +1,42 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex($align-item, $justify-content) {
+    display: flex;
+    align-items: $align-item;
+    justify-content: $justify-content;
+    
+}
+
+@mixin mobile {
+    @media only screen and (max-width: $mobile-width) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media only screen and (max-width: $tablet-width) {
+        @content;
+    }
+}
+
+@mixin button {
+    background: none;
+        padding: 10px 2rem;
+        border-radius: 20px;
+        color: $cream-color;
+        cursor: pointer;
+        font-weight: bolder;
+        border: 2px solid $cream-color;
+        font-size: 1.5rem;
+        margin-top: 2rem;
+}
+
+@mixin hover {
+    transform: scale(140%);
+        transition: 1s ease-in-out;
+        color: $secondary;
+        background: $cream-color;
+}

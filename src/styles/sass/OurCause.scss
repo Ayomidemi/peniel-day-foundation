@@ -1,0 +1,92 @@
+.ourcause {
+    min-height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.about-banner {
+    height: 15rem;
+    background: url(../../img/podcast.jpg);
+    width: 100%;
+    background-position: cover;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+font-size: 3rem;
+color: $white;
+        text-transform: capitalize;
+}
+.about-container {
+    width: 80%;
+    margin: 4rem auto; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.about-contained {
+    width: 80%;
+    margin: 4rem auto;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.box {
+    width: 45%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        margin: 1rem 0 ;
+        font-size: 1.2rem;
+    }
+}
+.box-middle {
+    width: 45%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        margin: 1rem 0;
+        font-size: 1.2rem;
+    }
+}
+
+
+
+/* RESPONSIVE */
+
+@media (max-width: 64em) {
+    .about-banner {
+        font-size: 2.2rem;
+    }
+    .about-container {
+        flex-direction: column;
+        margin: 2rem auto;
+    }
+    .box {
+        width: 100%;
+    }
+    .about-contained {
+        flex-direction: column-reverse;
+        margin: 2rem auto;
+    }
+    .box-middle {
+        width: 100%;
+    }
+ }
+
+ @media (max-width: 48em) {
+    .about-banner {
+        font-size: 1.8rem;
+    }
+ }
