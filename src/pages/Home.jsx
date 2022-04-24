@@ -1,23 +1,41 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { ArrowRightAlt, AccessTime } from '@material-ui/icons';
-import CountUp from 'react-countup'
+// import CountUp from 'react-countup'
 
 import img1 from '../img/pod1.jpg'
 import img2 from '../img/pod2.jpg'
 import img3 from '../img/pod3.jpg'
 
-import grid1 from '../img/pod1.jpg'
-import grid2 from '../img/pod2.jpg'
-import grid3 from '../img/pod3.jpg'
-import grid4 from '../img/pod1.jpg'
-import grid5 from '../img/pod2.jpg'
-import grid6 from '../img/pod3.jpg'
-import grid7 from '../img/pod1.jpg'
-import grid8 from '../img/pod2.jpg'
-import grid9 from '../img/pod3.jpg'
+import grid1 from '../img/grid1.jpg'
+import grid2 from '../img/grid2.jpg'
+import grid4 from '../img/logo2.png'
+import grid5 from '../img/homegrid5.jpg'
+import grid6 from '../img/homegrid11.jpg'
+import grid7 from '../img/grid4.jpg'
+import grid8 from '../img/homegrid6.jpg'
+import grid9 from '../img/logo.png'
 
-import news1 from '../img/podcast.jpg'
+import grid11 from '../img/home2.jpg'
+import grid12 from '../img/grid5.jpg'
+import grid15 from '../img/grid9.jpg'
+import grid16 from '../img/homegrid9.jpg'
+import grid17 from '../img/homegrid3.jpg'
+import grid18 from '../img/homegrid1.jpg'
+
+
+import grid21 from '../img/homegrid8.jpg'
+import grid22 from '../img/grid3.jpg'
+import grid23 from '../img/homegrid4.jpg'
+import grid24 from '../img/homegrid10.jpg'
+import grid25 from '../img/homegrid9.jpg'
+import grid26 from '../img/fre1.jpg'
+import grid27 from '../img/grid1.jpg'
+import grid28 from '../img/homegrid11.jpg'
+import grid29 from '../img/homegrid2.jpg'
+
+import news1 from '../img/news1.png'
+import news2 from '../img/news2.png'
 import abimbola from '../img/abimbola.jpg'
 
 
@@ -42,6 +60,10 @@ const PodcastItem = ({img, name='', icon}) => {
 const Home = () => {
   return (
     <div className='home' id='navbar'>
+
+      {/* HOME BACKGROUND FIRST SECTION */}
+      {/* HOME BACKGROUND FIRST SECTION */}
+      {/* HOME BACKGROUND FIRST SECTION */}
       
       <div className="first-section">
         <div className="outer">
@@ -64,19 +86,22 @@ const Home = () => {
         </div>
       </div>
 
+      {/* FIRST GRID CONTAINER */}
+      {/* FIRST GRID CONTAINER */}
+      {/* FIRST GRID CONTAINER */}
+
       <div className='grid-container'>
         <div className="box-grid">
           <div className="grid1">
             <div className="image"> <img src={grid1} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid2} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid3} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid4} alt="Peniel Day" /> </div>
+            <div className="image-pen"> Peniel Day Foundation </div>
+        <div className="image-penlogo"> <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation </div>
             <div className="image"> <img src={grid5} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid6} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid7} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid8} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid9} alt="Peniel Day" /> </div>
-
+            <div className="image-logoo"> <img src={grid9} alt="Peniel Day" /> </div>
 
           </div>
         </div>
@@ -95,6 +120,10 @@ const Home = () => {
       </div>
 
 
+      {/* SECOND GRID CONTAINER */}
+      {/* SECOND GRID CONTAINER */}
+      {/* SECOND GRID CONTAINER */}
+
       <div className="grig-contained">
         <div className="grid-contained">
         <div className="box-grid">
@@ -111,33 +140,37 @@ const Home = () => {
 
         <div className="box-grid">
           <div className="grid1">
-            <div className="image"> <img src={grid1} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid2} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid3} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid4} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid5} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid6} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid7} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid8} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid9} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid11} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid12} alt="Peniel Day" /> </div>
+            <div className="image-logoo"> <img src={grid9} alt="Peniel Day" /> </div>
+            <div className="image-pen"> Peniel Day Foundation </div>
+            <div className="image"> <img src={grid15} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid16} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid17} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid18} alt="Peniel Day" /> </div>
+      <div className="image-penlogo"> <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation </div>
           </div>
         </div>
 
       </div>
       </div>
 
+      {/* THIRD GRID CONTAINER */}
+      {/* THIRD GRID CONTAINER */}
+      {/* THIRD GRID CONTAINER */}
+
       <div className='grid-container'>
         <div className="box-grid">
           <div className="grid1">
-            <div className="image"> <img src={grid1} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid2} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid3} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid4} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid5} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid6} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid7} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid8} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid9} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid21} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid22} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid23} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid24} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid25} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid26} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid27} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid28} alt="Peniel Day" /> </div>
+            <div className="image"> <img src={grid29} alt="Peniel Day" /> </div>
 
 
           </div>
@@ -176,18 +209,22 @@ const Home = () => {
       </div>
 
 
+      {/* HOW WE MEASURE IMPACT SECTION */}
+      {/* HOW WE MEASURE IMPACT SECTION */}
+      {/* HOW WE MEASURE IMPACT SECTION */}
+
       <div className='grid-container'>
         <div className="box-grid">
           <div className="grid1">
             <div className="image"> <img src={grid1} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid2} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid3} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid4} alt="Peniel Day" /> </div>
+            <div className="image-pen"> Peniel Day Foundation </div>
+    <div className="image-penlogo"> <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation </div>
             <div className="image"> <img src={grid5} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid6} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid7} alt="Peniel Day" /> </div>
             <div className="image"> <img src={grid8} alt="Peniel Day" /> </div>
-            <div className="image"> <img src={grid9} alt="Peniel Day" /> </div>
+            <div className="image-logoo"> <img src={grid9} alt="Peniel Day" /> </div>
 
 
           </div>
@@ -202,24 +239,27 @@ const Home = () => {
 
          <div className="counter">
            <div className="counter-content">
-           <CountUp duration={3} end={5} delay={2}
-                onEnd={({pauseResume, reset, start, update}) => start() } className='count' />
+           {/* <CountUp duration={3} end={5} delay={2}
+                onEnd={({pauseResume, reset, start, update}) => start() } className='count' /> */}
+                <h2>8+</h2>
                 <h3>
                   No of Scholarship
                 </h3>
            </div>
 
            <div className="counter-content">
-           <CountUp duration={3} end={95} delay={2}
-                onEnd={({pauseResume, reset, start, update}) => start() } className='count' />
+           {/* <CountUp duration={3} end={95} delay={2}
+                onEnd={({pauseResume, reset, start, update}) => start() } className='count' /> */}
+                <h2>95+</h2>
                 <h3>
                   Lives Saved
                 </h3>
            </div>
 
            <div className="counter-content">
-           <CountUp duration={3} end={5} delay={2}
-                onEnd={({pauseResume, reset, start, update}) => start() } className='count' />
+           {/* <CountUp duration={3} end={5} delay={2}
+                onEnd={({pauseResume, reset, start, update}) => start() } className='count' /> */}
+                <h2>5</h2>
                 <h3>
                   Team Outreach
                 </h3>
@@ -237,6 +277,10 @@ const Home = () => {
       </div>
 
 
+     {/* NEWS AND ARTICLES SECTION */}
+     {/* NEWS AND ARTICLES SECTION */}
+     {/* NEWS AND ARTICLES SECTION */}
+
 
       <div className="articles">
 
@@ -245,6 +289,9 @@ const Home = () => {
       </div>
 
       <div className="news">
+
+        {/* NEWS SUMMER LEADERSHIP SUMMIT */}
+        {/* NEWS SUMMER LEADERSHIP SUMMIT */}
 
         <div className="news-box">
 
@@ -277,14 +324,17 @@ const Home = () => {
           </div>
         </div>
 
+        {/* NEWS PENIEL DAY */}
+        {/* NEWS PENIEL DAY */}
+
 
         <div className="news-box">
 
-        <Link to='peniel'> <img src={news1} alt="Peniel Day" /> </Link>
+        <Link to='peniel'> <img src={news2} alt="Peniel Day" /> </Link>
 
 <div className="news-box1">
-  <button className='btn-news' 
-  style={{'background': '#009346'}}>Featured Post</button>
+<Link to ='peniel'><button className='btn-news' 
+  style={{'background': '#009346'}}>Featured Post</button></Link>
 
   <h1>Peniel Day</h1>
 
@@ -309,14 +359,16 @@ const Home = () => {
 </div>
 </div>
 
+{/* NEWS RAISING LEADERS */}
+{/* NEWS RAISING LEADERS */}
 
 <div className="news-box">
 
 <Link to='raising'> <img src={news1} alt="Peniel Day" /> </Link>
 
 <div className="news-box1">
-  <button className='btn-news' 
-  style={{'background': '#D4AF37', 'border': '#D4AF37'}}>Blog Post</button>
+<Link to='raising'><button className='btn-news' 
+  style={{'background': '#D4AF37', 'border': '#D4AF37'}}>Blog Post</button></Link>
 
   <h1>Raising Leaders</h1>
 

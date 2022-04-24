@@ -9,8 +9,8 @@ width: 100vw;
 position: inherit;
 }
 .container-road {
-width: 70%;
-height: 200vh;
+width: 80%;
+// height: 200vh;
 margin: 0 auto; 
 display: flex;
 justify-content: center;
@@ -19,13 +19,13 @@ position: relative;
 }
 .svg-container {
 display: flex;
-justify-content: center;
-align-items: center;
+// justify-content: center;
+// align-items: center;
 }
 .vector-container {
 position: absolute;
 top: 0.5rem;
-left: 50%;
+// left: 50%;
 transform: translate(-50%);
 width: 100%;
 height: 100%;
@@ -40,7 +40,7 @@ svg {
 .ball {
 position: absolute;
 top: 0rem;
-left: 50%;
+// left: 50%;
 transform: translate(-50%);
 width: 1.5rem;
 height: 1.5rem;
@@ -50,19 +50,19 @@ animation: bounce 0.5s linear infinite alternate;
 }
 .road-items {
 list-style: none;
-width: 100%;
+width: 100%; 
 height: 100%;
-display: flex;
+display: flex; 
 flex-direction: column;
 justify-content: center;
 align-items: center;
 
 &>*:nth-of-type(2n + 1) {
-    justify-content: start;
+    // justify-content: end;
 
     div {
-        border-radius: 50px 0 50px 0;
-        text-align: right;
+        border-radius: 50px ;
+        // text-align: right;
     }
     p {
         border-radius: 40px 0 50px 0;
@@ -70,11 +70,11 @@ align-items: center;
     
 }
 &>*:nth-of-type(2n) {
-    justify-content: end;
+    // justify-content: end;
 
     div {
-        border-radius: 0 50px 0 50px ;
-        text-align: left;
+        border-radius:  50px ;
+        // text-align: left;
     }
     p {
         border-radius: 0 40px 0 40px ;
@@ -85,43 +85,78 @@ align-items: center;
 width: 100%;
 height: 100%;
 display: flex;
+justify-content: space-between;
+align-items: center;
 }
 .container-item {
-width: 40%;
-height: fit-content;
+width: 100%;
+height: 40vh;
 padding: 1rem;
-border: 3px solid $secondary;
+// border: 3px solid $secondary;
+// margin: 0 2rem;
 }
 .box-road {
-height: fit-content;
-background: $secondary-light;
+height: 100%;
+width: 100%;
+// background: $secondary-light;
 padding: 1rem;
 position: relative;
-box-sizing: 1px solid $primary;
+// box-sizing: 1px solid $primary;
+align-items: center;
+justify-content: center;
+display: flex;
+flex-direction: column;
 }
 .subtitle-road {
 display: block;
-font-size: 1.5rem;
+font-size: 1.7rem;
 margin: .5rem;
 text-transform: capitalize;
+font-weight: 600;
+color: $secondary;
 }
 .subtitle-light-road {
 display: block;
 margin: .5rem;
-text-transform: capitalize;
 font-weight: 400;
+font-size: 1.1rem;
 }
+.roasd {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    align-items: center;
+    width: 80%;
+
+    img {
+        width:100%;
+        height: 40vh;
+        border-radius: 50px;
+        // margin: 0 2rem;
+    }
+}
+.roasd2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+
+    img {
+        width:100%;
+        height: 40vh;
+        border-radius: 50px;
+        // margin: 0 2rem;
+    }
+}
+
+
 
 
 /* RESPONSIVE */
 
 @media (max-width: 64em) {
-.container-road {
-    width: 80%;
-}
-}
-
-@media (max-width: 48em) {
 .container-road {
     width: 90%;
 }
@@ -136,7 +171,7 @@ font-weight: 400;
         
         div {
         border-radius:  0 50px 0 50px;
-        text-align: left;
+        // text-align: left;
         }
         p {
             border-radius: 0 40px 0 40px ;
@@ -149,17 +184,31 @@ font-weight: 400;
     }
 }
 .road-item {
-    justify-content: flex-end !important;
+    justify-content: center;
 
 }
 .container-item {
-    width: 70%;
+    width: 100%;
+    height: 100%;
 }
 .vector-container {
     left: 2rem;
 }
 .ball {
     left: 2rem;
+}
+.roasd {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: .5rem 0;
+}
+.roasd2 {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 70%;
+    margin: .5rem 0;
+
 }
 }
 

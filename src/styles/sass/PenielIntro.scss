@@ -5,7 +5,7 @@
 }
 .peniel-banner {
     height: 15rem;
-    background: url(../../img/podcast.jpg);
+    background: url(https://images.pexels.com/photos/461940/pexels-photo-461940.jpeg?cs=srgb&dl=pexels-pixabay-461940.jpg&fm=jpg);
     width: 100%;
     background-position: cover;
     background-size: cover;
@@ -17,6 +17,18 @@
 font-size: 2.5rem;
 color: $white;
         text-transform: capitalize;
+
+        h1 {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            display: flex;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
 }
 
 

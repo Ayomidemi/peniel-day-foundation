@@ -70,17 +70,18 @@ const Podcast = () => {
           <div className='column1'>
           <TeamMembers  img={img4} name='abimbola ayodele' 
         />
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Corrupti quia voluptate iusto omnis maiores, aut doloremque impedit assumenda excepturi, 
-          quae ullam dolor magnam? Sunt tempora consequatur culpa, rerum esse est.</p>
+        <p>Jesus Christ was specially anointed to bind the hearts of the broken hearted 
+          and to bring liberty to people who may be in one form of prison or the other. 
+          Be it an emotional, spiritual, or physical prison Jesus Christ is able to break everyone 
+          one free only if we let Him.</p>
           </div>
 
           <div className='column1'>
          <TeamMembers  img={img5} name='esther hinmikaiye' 
         />
- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Corrupti quia voluptate iusto omnis maiores, aut doloremque impedit assumenda excepturi, 
-          quae ullam dolor magnam? Sunt tempora consequatur culpa, rerum esse est.</p>
+ <p>We have read and we know of men and women who Jesus delivered from one prison or the other. 
+   On this podcast, we would be taking you through the journey of these prisoners who came
+    to know complete freedom through the help of Jesus Christ.</p>
 
         </div>
        

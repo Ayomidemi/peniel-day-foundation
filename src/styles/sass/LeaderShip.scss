@@ -5,7 +5,7 @@
 }
 .leader-banner {
     height: 15rem;
-    background: url(../../img/podcast.jpg);
+    background: url(https://images.pexels.com/photos/4937197/pexels-photo-4937197.jpeg?cs=srgb&dl=pexels-cottonbro-4937197.jpg&fm=jpg);
     width: 100%;
     background-position: cover;
     background-size: cover;
@@ -17,6 +17,18 @@
 font-size: 2.5rem;
 color: $white;
         text-transform: capitalize;
+
+        h1 {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: absolute;
+            display: flex;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
 }
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import leader from '../img/pod1.jpg'
+import leader from '../img/leadership.png'
 
 const LeaderShip = () => {
   return (

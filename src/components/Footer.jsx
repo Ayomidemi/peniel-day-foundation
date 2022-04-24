@@ -57,7 +57,7 @@ const Footer = () => {
         <div className="list-right">
         <div className='list' ><Link to="/" >HOME </Link></div>
         <div className='list' ><Link to="ourcause" > ABOUT US </Link> </div>   
-        <div className='list' > PROGRAMS</div>
+        <div className='list' > <Link to='whatwedo'>PROGRAMS </Link></div>
         <div className='list' > <Link to='volunteer'> VOLUNTEER </Link> </div>
         <div className='list' > <a href="https://paystack.com/pay/penielday"> DONATION </a></div>
         <div className='list' ><Link to="contact" >  CONTACT US </Link> </div>      

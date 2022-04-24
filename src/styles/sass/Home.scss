@@ -23,7 +23,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    background: url(../../img/pod1.jpg);
+    background: url(../../img/homebg.png);
     background-size: cover;
     position: relative;
     display: flex;
@@ -165,6 +165,11 @@
     h3 {
         font-size: 1.25rem;
         font-weight: 400;
+    }
+    h2 {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
     }
 }
 .count {
@@ -320,6 +325,21 @@
             height: 20vh;
         }
     } 
+    .image-pen {
+        width: 15rem;
+            height: 20vh;
+        font-weight: 600;
+    }
+    .image-penlogo {
+        font-size: 1.5rem;
+        width: 15rem;
+            height: 20vh;
+    }
+    .image-logoo {
+        width: 15rem;
+            height: 20vh;
+    }
+    
     .news {
        flex-direction: column;
     }
@@ -348,6 +368,26 @@
             height: 17vh;
         }
     } 
+    .image-pen {
+        font-size: .8rem;
+        font-weight: 500;
+        width: 7rem;
+        height: 17vh;
+    }
+    .image-penlogo {
+        font-size: .7rem;
+        font-weight: 500;
+        width: 7rem;
+        height: 17vh;
+
+        img {
+            width: 50%;
+        }
+    }
+    .image-logoo {
+        width: 7rem;
+        height: 17vh;
+    }
     .box-grid {
        
         h1 {
@@ -385,5 +425,41 @@
     }
     .news-box {
         margin: 1rem 1rem;
+    }
+}
+
+.image-pen {
+    background: $secondary;
+    color: $white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // width: 10rem;
+    //     height: 25vh;
+}
+.image-penlogo {
+    background: $primary-light;
+    color: $white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // width: 10rem;
+    //     height: 25vh;
+}
+.image-logoo {
+    // width: 10rem;
+    //     height: 25vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, rgba($primary-light, 0.5), rgba($secondary, 0.3));
+
+    img {
+        width: 70%;
     }
 }

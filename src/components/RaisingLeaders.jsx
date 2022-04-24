@@ -1,5 +1,5 @@
 import React from 'react'
-import raising from '../img/pod1.jpg'
+import raising from '../img/raising.png'
 
 
 const RaisingLeaders = () => {

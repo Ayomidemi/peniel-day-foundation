@@ -1,5 +1,5 @@
 import React from 'react'
-import maiden from '../img/pod1.jpg'
+import maiden from '../img/maiden.png'
 
 
 const MaidenProgram = () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import peniel from '../img/pod1.jpg'
+import peniel from '../img/inspiration.png'
 
 
 

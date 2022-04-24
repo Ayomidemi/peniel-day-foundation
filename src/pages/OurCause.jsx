@@ -1,5 +1,7 @@
 import React from 'react'
-import about1 from '../img/pod1.jpg'
+import about1 from '../img/about1.png'
+import about2 from '../img/about2.png'
+import about3 from '../img/about3.png'
 
 
 const OurCause = () => {
@@ -40,7 +42,7 @@ const OurCause = () => {
 
         <div className="about-contained">
           <div className='box'>
-            <img src={about1} alt="Peniel Day" />
+            <img src={about2} alt="Peniel Day" />
           </div>
 
           <div className="box-middle">
@@ -83,7 +85,7 @@ const OurCause = () => {
           </div>
 
           <div className='box'>
-            <img src={about1} alt="Peniel Day" />
+            <img src={about3} alt="Peniel Day" />
           </div>
         </div>
 
