@@ -45,19 +45,14 @@ li {
 }
 .btn {
     cursor: pointer;
-    width: 12rem;
+    width: 10rem;
     background: $secondary;
     color: white;
     padding: 15px;
     border: none;
-    border-radius: 20px;
+    border-radius: 8px;
     text-align: center;
-    transition: all 0.2s ease;
-    font-size: 15px;
-
-    &:hover {
-        transform: scale(0.9);
-    }
+    font-size: 16px;
 }
 .hamburger {
     width: 1.5rem;

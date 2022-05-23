@@ -1,115 +1,127 @@
 .team {
-    min-height: 100vh;
-    width: 100%;
-    position: relative;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
 }
 .team-banner {
-    height: 15rem;
-    background: url(../../img/team.jpg);
-    width: 100%;
-    background-position: cover;
-    background-size: cover;
-    position: relative;
-    display: flex;
+  height: 15rem;
+  background: url(../../img/team.jpg);
+  width: 100%;
+  background-position: cover;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+
+  h1 {
+    color: $white;
+    font-size: 4.5rem;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5rem;
-
-    h1 {
-        color: $white;
-        font-size: 4.5rem;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: absolute;
-        display: flex;
+    text-align: center;
+    position: absolute;
+    display: flex;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
-        text-transform: capitalize;
-    }
+    text-transform: capitalize;
+  }
 }
 .container-show {
-    width: 80%;
-    margin: 2rem auto;
-    flex-wrap: wrap; 
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
+  width: 80%;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .show-item {
-    width: 20rem;
-    height: 70vh;
-    padding: 0rem 0;
-    margin: 2rem 1rem;
-    position: relative;
-    border: 2px solid $white;
-    box-shadow: $primary 0px 4px 8px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+  width: 20rem;
+  height: 70vh;
+  padding: 0rem 0;
+  margin: 2rem 1rem;
+  position: relative;
+  border: 2px solid $white;
+  box-shadow: $primary 0px 4px 8px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 
-
-    &:hover {
-        img {
-            transform: translateY(-2rem) scale(1.2);
-        }
+  &:hover {
+    img {
+      transform: translateY(-2rem) scale(1.2);
     }
+  }
 }
 .names {
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    margin-top: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: 1rem;
 }
 .position {
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-transform: capitalize;
-    margin: 1rem 0;
-    font-weight: 400;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 1rem 0;
+  font-weight: 400;
 }
 .image-contain {
+  width: 100%;
+  margin: 0 auto;
+  background: $cream-color;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 2px solid $white;
+
+  img {
     width: 100%;
-    margin: 0 auto;
-    background: $cream-color;
-    border-radius: 20px;
-    cursor: pointer;
-    border: 2px solid $white;
-    
-
-    img {
-        width: 100%;
-        height: 50vh;
-        transition: all .3s;
-        object-fit: cover;
-    }
+    height: 50vh;
+    transition: all 0.3s;
+    object-fit: cover;
+  }
 }
-
-
 
 /* RESPONSIVE */
 
 @media (max-width: 64em) {
-    .container-show {
-        width: 80%;
+  .container-show {
+    width: 80%;
+  }
+  .show-item {
+    width: 100%;
+    height: auto;
+  }
+  .team-banner {
+      height: 10rem;
+      font-size: 3rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .container-show {
+    width: 80%;
+    justify-content: center;
+  }
+  .team-banner {
+    height: 8rem;
+    h1 {
+        font-size: 2.6rem;
     }
-    .show-item {
-        width: 100%;
-        height: auto;
+}
+}
+
+@media (max-width: 40em) {
+    .team-banner {
+        h1 {
+            font-size: 2.3rem;
+        }
     }
-    
- }
- 
- 
- @media (max-width: 48em) {
-    .container-show {
-        width: 80%;
-        justify-content: center;
-    }
-    
- }
+  }
+  

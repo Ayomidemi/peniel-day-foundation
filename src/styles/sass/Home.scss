@@ -1,18 +1,3 @@
-// @keyframes animate {
-//     0%,100% {
-//         background-image: url(../../img/home1.jpg);
-//     }
-//     25% {
-//         background-image: url(../../img/home2.jpg);
-//     }
-//     50% {
-//         background-image: url(../../img/home3.jpg);
-//     }
-//     75% {
-//         background-image: url(../../img/pod1.jpg);
-//     }
-// }
-
 .home {
     width: 100%;
     min-height: 100vh;
@@ -67,10 +52,10 @@
     color: white;
     padding: 15px;
     border: 2px solid $secondary;
-    border-radius: 20px;
+    border-radius: 8px;
     text-align: center;
     transition: all 0.2s ease;
-    font-size: 15px;
+    font-size: 16px;
     margin-right: 1rem;
 }
 .grid-container {
@@ -79,7 +64,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
+    min-height: 80vh;
 }
 .grig-contained {
     width: 100%;
@@ -91,7 +76,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
+    min-height: 90vh;
 
 }
 .box-grid {
@@ -134,11 +119,12 @@
 .podcast-sect {
     width: 100%;
     background: $cream-color;
-    min-height: 100vh;
+    min-height: 65vh;
     text-align: center;
     justify-content: center;
     align-items: center;
     position: relative;
+    padding-bottom: 2rem;
 
     h1 {
         font-size: 3rem;
@@ -186,7 +172,7 @@
 }
 .gradient {
     width: 100%;
-    height: 10rem;
+    height: 8rem;
     background: $linear;
     text-align: center;
     justify-content: center;
@@ -195,16 +181,17 @@
     color: $white;
     position: relative;
     display: flex;
+    margin-bottom: 1rem;
 }
 .news {
-    width: 80%;
+    width: 90%;
     display: flex;
     position: relative;
     align-items: center;
     justify-content: center;
 }
 .news-box {
-    width: 30rem;
+    width: 50%;
     padding: 0rem 0;
     margin: 3rem 1rem;
     position: relative;
@@ -214,11 +201,12 @@
     flex-direction: column;
     
     img {
-        height: 50vh;
+        height: 100%;
+        width: 100%;
         object-fit: cover;
 
         @media screen and (max-width: 64em) {
-            height: 40vh;
+            
         }
     }
 }
@@ -227,8 +215,8 @@
     position: relative;
     align-items: center;
     justify-content: center;
-    width: 19rem;
-    height: 60vh;
+    width: 90%;
+    height: fit-content;
     background: $white;
     box-shadow: $box-shadow;
 
@@ -332,22 +320,17 @@
     }
     .image-penlogo {
         font-size: 1.5rem;
-        width: 15rem;
-            height: 20vh;
     }
-    .image-logoo {
-        width: 15rem;
-            height: 20vh;
-    }
-    
     .news {
        flex-direction: column;
+       margin-top: 1rem;
     }
     .news-box {
-        width: 100%;
+        width: 90%;
+        margin: 0rem 1rem;
     }
     .news-box1 {
-        width: 80%;
+        width: 90%;
         height: auto;
         bottom: 5rem;
     }
@@ -371,23 +354,19 @@
     .image-pen {
         font-size: .8rem;
         font-weight: 500;
-        width: 7rem;
-        height: 17vh;
+        
     }
     .image-penlogo {
         font-size: .7rem;
         font-weight: 500;
-        width: 7rem;
-        height: 17vh;
-
-        img {
-            width: 50%;
-        }
     }
     .image-logoo {
-        width: 7rem;
-        height: 17vh;
+        img {
+            width: 100% !important;
+        }
+        
     }
+   
     .box-grid {
        
         h1 {
@@ -436,8 +415,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    // width: 10rem;
-    //     height: 25vh;
+    height: 100%;
+    width: 100%;
 }
 .image-penlogo {
     background: $primary-light;
@@ -448,18 +427,24 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    // width: 10rem;
-    //     height: 25vh;
+    height: 100%;
+    width: 100%;
+
+    img {
+        width: 50% !important;
+        height: 40% !important;
+    }
 }
 .image-logoo {
-    // width: 10rem;
-    //     height: 25vh;
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(to right, rgba($primary-light, 0.5), rgba($secondary, 0.3));
 
     img {
-        width: 70%;
+        width: 50% !important;
+        height: 60% !important;
     }
 }

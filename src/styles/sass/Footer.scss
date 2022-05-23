@@ -41,12 +41,12 @@
 }
 .footer-button {
     cursor: pointer;
-    width: 12rem;
+    width: 10rem;
     background: $white;
     color: $secondary;
     padding: 15px;
-    border: 2px solid $secondary;
-    border-radius: 20px;
+    border: 1px solid $secondary;
+    border-radius: 8px;
     text-align: center;
     transition: all 0.2s ease;
     font-size: 15px;
@@ -56,7 +56,7 @@
     width: 100%;
     background: $smoky-black;
     color: $white;
-    height: 30rem;
+    min-height: 30rem;
 }
 .footer-items {
     width: 80%;
@@ -92,7 +92,8 @@
 .icons-middle {
     background: $primary;
     color: $smoky-black;
-    margin: 0 .5rem;
+    padding: 3px;
+    margin-right: 10px;
 }
 .list-title {
     font-size: 1.3rem;
@@ -102,7 +103,7 @@
 }
 .lit {
     font-size: 1.1rem;
-    margin: .5rem 0;
+    margin: 1rem 0;
 }
 .list {
     text-decoration: none;
@@ -148,9 +149,12 @@
    border-top: 1px solid $white;
    color: $primary;
 }
+.footer-mobile {
+    display: none;
+}
 
 
-
+  
 /* RESPONSIVE */
 
 @media (max-width: 64em) {
@@ -168,7 +172,7 @@
         }
     }
     .footer-button {
-        width: 8rem;
+        width: 7rem;
     font-size: 15px;
     margin-top: 1rem;
     }
@@ -180,23 +184,58 @@
 }
 @media (max-width: 48em) {
     .footer-container {
-        height: 47rem;
+        height: fit-content;
         width: 100%;
     }
     .footer-items {
-         width: 100%;
+        display: none;
+    }
+    .footer-banner {
+        display: none;
+    }
+    .bottom {
+        display: none;
+    }
+    .footer-mobile {
         display: flex;
         flex-direction: column;
-        margin-left: 1rem;
+        padding: 2rem;
     }
-    .footer-left{
-        width: 100%;
-        align-items: flex-start;
+    .mobile-links{
+        display: flex;
+        flex-direction: column;
+        color: $primary-light;
+        border-top: 1px solid $grey;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        padding-top: 2rem;
+
+        a {
+        margin-bottom: 1rem;
     }
-    .footer-middle {
-        width: 100%;
     }
-    .footer-right {
-        width: 100%;
+    
+    .footer-mobile-icons {
+        color: $grey;
+
+        a{
+            margin-right: 1rem;
+
+            a:hover {
+            color: $primary-light;
+        }
+        }
+    }
+    .footer-mobile-first-section {
+        width: 60%;
+        margin-bottom: 2rem;
+    }
+    .footer-mobile-second-seec {
+        h1 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 14px;
+        }
     }
 }

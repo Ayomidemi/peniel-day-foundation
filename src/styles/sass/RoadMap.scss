@@ -1,220 +1,219 @@
 @keyframes bounce {
-    from {transform: translate(-50%) scale(0.5);}
-    to {transform: translate(-50%) scale(1);}
+  from {
+    transform: translate(-50%) scale(0.5);
+  }
+  to {
+    transform: translate(-50%) scale(1);
+  }
 }
 
 .roadmap {
-min-height: 100vh;
-width: 100vw;
-position: inherit;
+  min-height: 100vh;
+  width: 100vw;
+  position: inherit;
 }
 .container-road {
-width: 80%;
-// height: 200vh;
-margin: 0 auto; 
-display: flex;
-justify-content: center;
-align-items: center;
-position: relative;
+  width: 80%;
+  // height: 200vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 .svg-container {
-display: flex;
-// justify-content: center;
-// align-items: center;
+  display: flex;
+  // justify-content: center;
+  // align-items: center;
 }
 .vector-container {
-position: absolute;
-top: 0.5rem;
-// left: 50%;
-transform: translate(-50%);
-width: 100%;
-height: 100%;
-overflow: hidden;
+  position: absolute;
+  top: 0.5rem;
+  // left: 50%;
+  transform: translate(-50%);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
-svg {
+  svg {
     width: 100%;
     height: 100%;
     color: $black;
-}
+  }
 }
 .ball {
-position: absolute;
-top: 0rem;
-// left: 50%;
-transform: translate(-50%);
-width: 1.5rem;
-height: 1.5rem;
-border-radius: 50%;
-background: $black;
-animation: bounce 0.5s linear infinite alternate;
+  position: absolute;
+  top: 0rem;
+  // left: 50%;
+  transform: translate(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: $black;
+  animation: bounce 0.5s linear infinite alternate;
 }
 .road-items {
-list-style: none;
-width: 100%; 
-height: 100%;
-display: flex; 
-flex-direction: column;
-justify-content: center;
-align-items: center;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-&>*:nth-of-type(2n + 1) {
+  & > *:nth-of-type(2n + 1) {
     // justify-content: end;
 
     div {
-        border-radius: 50px ;
-        // text-align: right;
+      border-radius: 50px;
+      // text-align: right;
     }
     p {
-        border-radius: 40px 0 50px 0;
+      border-radius: 40px 0 50px 0;
     }
-    
-}
-&>*:nth-of-type(2n) {
+  }
+  & > *:nth-of-type(2n) {
     // justify-content: end;
 
     div {
-        border-radius:  50px ;
-        // text-align: left;
+      border-radius: 50px;
+      // text-align: left;
     }
     p {
-        border-radius: 0 40px 0 40px ;
+      border-radius: 0 40px 0 40px;
     }
-}
+  }
 }
 .road-item {
-width: 100%;
-height: 100%;
-display: flex;
-justify-content: space-between;
-align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 .container-item {
-width: 100%;
-height: 40vh;
-padding: 1rem;
-// border: 3px solid $secondary;
-// margin: 0 2rem;
+  width: 100%;
+  height: 40vh;
+  padding: 1rem;
+  // border: 3px solid $secondary;
+  // margin: 0 2rem;
 }
 .box-road {
-height: 100%;
-width: 100%;
-// background: $secondary-light;
-padding: 1rem;
-position: relative;
-// box-sizing: 1px solid $primary;
-align-items: center;
-justify-content: center;
-display: flex;
-flex-direction: column;
+  height: 100%;
+  width: 100%;
+  // background: $secondary-light;
+  padding: 1rem;
+  position: relative;
+  // box-sizing: 1px solid $primary;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 .subtitle-road {
-display: block;
-font-size: 1.7rem;
-margin: .5rem;
-text-transform: capitalize;
-font-weight: 600;
-color: $secondary;
+  display: block;
+  font-size: 1.7rem;
+  margin: 0.5rem;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: $secondary;
 }
 .subtitle-light-road {
-display: block;
-margin: .5rem;
-font-weight: 400;
-font-size: 1.1rem;
+  display: block;
+  margin: 0.5rem;
+  font-weight: 400;
+  font-size: 1.1rem;
 }
 .roasd {
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 0;
-    align-items: center;
-    width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  align-items: center;
+  width: 85%;
 
-    img {
-        width:100%;
-        height: 40vh;
-        border-radius: 50px;
-        // margin: 0 2rem;
-    }
+  img {
+    width: 100%;
+    height: 40vh;
+    border-radius: 50px;
+    object-fit: cover;
+    // margin: 0 2rem;
+  }
 }
 .roasd2 {
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem 0;
-    align-items: center;
-    text-align: center;
-    width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+  align-items: center;
+  text-align: center;
+  width: 80%;
 
-    img {
-        width:100%;
-        height: 40vh;
-        border-radius: 50px;
-        // margin: 0 2rem;
-    }
+  img {
+    width: 100%;
+    height: 40vh;
+    border-radius: 50px;
+    // margin: 0 2rem;
+  }
 }
-
-
-
 
 /* RESPONSIVE */
+/* RESPONSIVE */
 
-@media (max-width: 64em) {
-.container-road {
+@media (max-width: 60em) {
+  .container-road {
     width: 90%;
-}
-.typewriter-road {
+  }
+  .typewriter-road {
     font-size: 1.8rem;
-}
-.road-items {
+  }
+  .road-items {
     width: 90%;
 
-    &>*:nth-of-type(2n + 1) {
-        justify-content: center;
-        
-        div {
-        border-radius:  0 50px 0 50px;
+    & > *:nth-of-type(2n + 1) {
+      justify-content: center;
+
+      div {
+        border-radius: 0 50px 0 50px;
         // text-align: left;
-        }
-        p {
-            border-radius: 0 40px 0 40px ;
-        }
+      }
+      p {
+        border-radius: 0 40px 0 40px;
+      }
     }
 
-    &>*:nth-of-type(2n) {
-        justify-content: center;
-
+    & > *:nth-of-type(2n) {
+      justify-content: center;
     }
-}
-.road-item {
+  }
+  .road-item {
     justify-content: center;
-
-}
-.container-item {
+  }
+  .container-item {
     width: 100%;
     height: 100%;
-}
-.vector-container {
+  }
+  .vector-container {
     left: 2rem;
-}
-.ball {
+  }
+  .ball {
     left: 2rem;
-}
-.roasd {
+  }
+  .roasd {
     display: flex;
     flex-direction: column;
     width: 70%;
-    margin: .5rem 0;
-}
-.roasd2 {
+    margin: 0.5rem 0;
+  }
+  .roasd2 {
     display: flex;
     flex-direction: column-reverse;
     width: 70%;
-    margin: .5rem 0;
-
-}
+    margin: 0.5rem 0;
+  }
 }
 
 @media (max-width: 40em) {
-.typewriter-road {
+  .typewriter-road {
     font-size: 1.4rem;
-}
-
+  }
 }
