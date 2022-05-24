@@ -17,8 +17,10 @@ const TeamMembers = ({ img, name = "", position = "" }) => {
         {" "}
         <img src={img} alt={name} />{" "}
       </div>
-      <div className="names"> {name} </div>
+      <div className="names-details">
+        <div className="names"> {name} </div>
       <div className="position"> {position} </div>
+      </div>
     </div>
   );
 };

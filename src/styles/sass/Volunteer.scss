@@ -12,15 +12,14 @@
   justify-content: center;
   position: relative;
   display: flex;
-  font-size: 3rem;
+  font-size: 2.5rem;
 
   h1 {
-    margin-top: 1rem;
+    margin-top: 2.2rem;
   }
 }
 .volunteer-container {
   width: 80%;
-  min-height: 100vh;
   margin: 2rem auto;
   flex-wrap: wrap;
   display: flex;
@@ -30,7 +29,7 @@
   background: $white;
 }
 .volunteer-form {
-  width: 70%;
+  width: 85%;
 
   h2 {
     margin: 2rem 0;
@@ -85,7 +84,7 @@
   }
 
   textarea#message {
-    height: 120px;
+    min-height: 120px;
     background: none;
     padding: 0 20px;
     width: 100%;
@@ -95,7 +94,7 @@
     font-size: 15px;
     outline: none;
     background: none;
-    letter-spacing: 0.1px;
+    letter-spacing: 0px;
     border: 2px solid hsla(0, 0%, 100%, 0.2);
     box-shadow: $secondary 0px 1px 2px;
   }
@@ -107,7 +106,7 @@
   background: $secondary;
   color: $white;
   width: 100%;
-  margin: 2rem 0;
+  margin-top: 2rem ;
   font-size: 1.2rem;
   height: 5rem;
   border: none;
@@ -118,7 +117,7 @@
 
 @media (max-width: 64em) {
   .volunteer-banner {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     height: 10rem;
   }
   .volunteer-form {
@@ -133,13 +132,13 @@
 
 @media (max-width: 48em) {
   .volunteer-banner {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
 @media (max-width: 40em) {
     .volunteer-banner {
-      font-size: 1.8rem;
+      font-size: 1.2rem;
      height: 9rem;
   }
 }

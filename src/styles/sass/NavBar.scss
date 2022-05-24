@@ -1,136 +1,132 @@
 .navbar {
-    width: 100vw;   
-    overflow: hidden;
-    box-shadow: $box-shadow;
+  width: 100vw;
+  overflow: hidden;
+  box-shadow: $box-shadow;
+  font-family: Helvetica;
 }
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 85%;
-    height: 5rem;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 5rem;
+  margin: 0 auto;
 }
 .logo {
-    width: 4rem;
+  width: 4rem;
 }
 .men {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2.5rem;
-    font-size: 1.1rem;
-
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  font-size: 1.1rem;
 }
 li {
-    margin: 0 1rem;
-    cursor: pointer;
-  
+  margin: 0 1rem;
+  cursor: pointer;
 
-    &::after {
-        content: '';
-        display: block;
-        width: 0%;
-        height: 3px;
-        background: $primary;
-        transition: width 0.3s ease;
-    }
-    &:hover::after {
-        width: 100%;
-    }
+  &::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 3px;
+    background: $primary;
+    transition: width 0.3s ease;
+  }
+  &:hover::after {
+    width: 100%;
+  }
 }
 .active {
-    color: $secondary;
+  color: $secondary;
 }
 .btn {
-    cursor: pointer;
-    width: 10rem;
-    background: $secondary;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 16px;
+  cursor: pointer;
+  width: 10rem;
+  background: $secondary;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
 }
 .hamburger {
+  width: 1.5rem;
+  height: 2px;
+  background: $black;
+  position: absolute;
+  top: 2.5rem;
+  right: 55%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @media (max-width: 48em) {
+    display: flex;
+  }
+
+  &::after,
+  &::before {
+    content: "";
     width: 1.5rem;
     height: 2px;
     background: $black;
     position: absolute;
-    top: 2.5rem;
-    left: 42.5%;
-    display: none;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
+  }
 
-    @media (max-width: 64em) {
-         /* 1024 px */
-         display: flex;  
-    }
+  &::after {
+    top: 0.5rem;
+  }
 
-    &::after, &::before {
-        content: '';
-        width: 1.5rem;
-        height: 2px;
-        background: $black;
-        position: absolute;
-    transition: all .3s ease;
-
-    }
-
-    &::after {
-        top: .5rem;
-    }
-
-    &::before {
-        bottom: .5rem;
-    }
-    
+  &::before {
+    bottom: 0.5rem;
+  }
 }
 .scroll-button {
-    background: $primary;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-size: 2rem;
-    color: $white;
-    position: fixed;
-    right: 1rem;
-    bottom: 1rem;
-    width: 2.8rem;
-    height: 2.8rem;
-    display: none;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: all .2s ease;
+  background: $primary;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
+  color: $white;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  display: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
 
-    &:hover {
-        transform: scale(1.2);
-    }
+  &:hover {
+    transform: scale(1.2);
+  }
 
-    &:hover {
-        transform: scale(0.9);
-    }
+  &:hover {
+    transform: scale(0.9);
+  }
 }
 .mobile {
-    display: none;
+  display: none;
 }
 
 /* RESPONSIVE */
+/* RESPONSIVE */
 
-@media (max-width: 64em) {
-    /* 1024px */
-    
-    .men {
+@media (max-width: 48em) {
+  .men {
     position: fixed;
     top: 5rem;
-    z-index:10;
+    z-index: 10;
     left: 0;
     right: 0;
     bottom: 0;
@@ -142,29 +138,29 @@ li {
     justify-content: center;
     background: $primary;
     color: $black;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
     font-size: 1.5rem;
-    }
-    
-    li {
-        margin: 1rem 0;
+  }
 
-        &::after {
-            display: none;
-        }
+  li {
+    margin: 1rem 0;
+
+    &::after {
+      display: none;
     }
-    .mobile {
-        display: none;
-       
-    }
-   
-    .btn {
-        font-size: 12px;
-        width: 8rem;
-    }
-   .scroll-button {
-       font-size: 1.5rem;
-       width: 2.5rem;
+  }
+  .mobile {
+    display: none;
+  }
+
+  .btn {
+    font-size: 12px;
+    width: 8rem;
+    font-weight: 600;
+  }
+  .scroll-button {
+    font-size: 1.5rem;
+    width: 2.5rem;
     height: 2.5rem;
-   }
+  }
 }

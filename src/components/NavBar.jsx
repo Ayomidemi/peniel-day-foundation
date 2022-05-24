@@ -6,7 +6,7 @@ import logo from "../img/logo.png";
 const NavBar = () => {
   const [click, setClick] = useState(false);
 
-  const scrollTo = (id) => {
+  const scrollTo = (id) => {  
     let element = document.getElementById(id);
 
     element.scrollIntoView({

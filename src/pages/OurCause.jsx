@@ -14,7 +14,7 @@ const OurCause = () => {
         <h1>Peniel day foundation</h1>
       </div>
 
-      <div className="about-container">
+      <div className="about-container">  
         <div className="box">
           <p>
             The 3rd of December, 2017 was the first time I made a visit to the

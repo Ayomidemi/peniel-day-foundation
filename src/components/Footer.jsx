@@ -1,10 +1,7 @@
 import {
-  Email,
   Facebook,
   Instagram,
-  Phone,
   Twitter,
-  AddLocation,
   YouTube,
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

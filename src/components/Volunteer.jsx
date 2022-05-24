@@ -2,7 +2,7 @@ import React from "react";
 
 const Volunteer = () => {
   return (
-    <div className="volunteer" id="navbar">
+    <div className="volunteer" >
       <div className="volunteer-banner">
         <h1>Volunteer </h1>
       </div>

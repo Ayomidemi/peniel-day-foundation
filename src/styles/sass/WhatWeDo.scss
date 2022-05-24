@@ -14,7 +14,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 3rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: $white;
   text-transform: capitalize;
 
@@ -67,14 +67,19 @@
 
 @media (max-width: 64em) {
    .what-banner {
-    font-size: 2.2rem;
+    font-size: 1.7rem;
     height: 10rem;
    }
   }
   
   @media (max-width: 48em) {
     .what-banner {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     height: 8rem;
     }
+  }
+  @media (max-width: 40em) {
+    .what-banner {
+      font-size: 1.2rem;
+     }
   }
