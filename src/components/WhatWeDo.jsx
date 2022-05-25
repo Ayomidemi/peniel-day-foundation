@@ -2,7 +2,7 @@ import React from "react";
 
 import eye from "../img/eye.png";
 import rocket from "../img/rocket.svg";
-import RoadMap from "./RoadMap";
+// import RoadMap from "./RoadMap";
 
 const WhatWeDo = () => {
   return (
@@ -12,7 +12,8 @@ const WhatWeDo = () => {
       </div>
 
       <div className="what-container">
-        <div className="what-card">
+        <div className="whatwedo-inner-cn">
+           <div className="what-card">
           <div className="what-svg">
             <img src={rocket} alt="Peniel Day" />
           </div>
@@ -55,8 +56,10 @@ const WhatWeDo = () => {
             their lives may be saved.
           </p>
         </div>
-
-        <RoadMap />
+        
+        {/* <RoadMap /> */}
+        </div>
+       
       </div>
     </div>
   );

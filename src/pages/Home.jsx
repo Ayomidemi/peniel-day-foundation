@@ -144,10 +144,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="box-grid">
+        <div className="box-grid" >
           <h1>We are about doing good</h1>
 
-          <p>
+          <p >
             We live to exemplify Jesus who went about doing good to communities
             He visited. By the help of the Holy Spirit, we serve our target
             comminities with goodness. -Acts 10:38
@@ -389,10 +389,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="box-grid">
-          <h1>how we measure our impact</h1>
+        <div className="box-grid" style={{alignItems: 'center'}}>
+          <h1 style={{textAlign: 'center'}}>how we measure our impact</h1>
 
-          <p>We are always where others need help.</p>
+          <p >We are always where others need help.</p>
 
           <div className="counter">
             <div className="counter-content">
