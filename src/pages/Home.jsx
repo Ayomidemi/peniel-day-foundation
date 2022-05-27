@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowRightAlt,
-  AccessTime
 } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import {  faClock, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 
 
 import img1 from "../img/pod1.jpg";
@@ -71,11 +70,11 @@ const Home = () => {
           <div className="first-details">
             <h1>Shining the light of Jesus with adolescents in Nigeria.</h1>
 
-            <h3>
+            <p>
               We stand for access to quality education and believe that through
               our efforts we can give adolescents in Nigeria access to schools
               and education.
-            </h3>
+            </p>
 
             <div className="box-home">
               <Link to="volunteer">
@@ -475,7 +474,8 @@ const Home = () => {
                   <h4>
                     {" "}
                     22nd October, 2021{" "}
-                    <AccessTime style={{ fontSize: "1rem" }} />{" "}
+                    
+                <FontAwesomeIcon icon={faClock} style={{fontSize: "1rem"}}/>
                   </h4>
                 </div>
               </div>
@@ -518,7 +518,7 @@ const Home = () => {
                   <h4>
                     {" "}
                     22nd October, 2021{" "}
-                    <AccessTime style={{ fontSize: "1rem" }} />{" "}
+                <FontAwesomeIcon icon={faClock} style={{fontSize: "1rem"}}/>
                   </h4>
                 </div>
               </div>
@@ -563,7 +563,7 @@ const Home = () => {
                   <h4>
                     {" "}
                     22nd October, 2021{" "}
-                    <AccessTime style={{ fontSize: "1rem" }} />{" "}
+                <FontAwesomeIcon icon={faClock} style={{fontSize: "1rem"}}/>
                   </h4>
                 </div>
               </div>
@@ -590,10 +590,10 @@ const Home = () => {
             </div>
             <div className="listen-text-container">
               <h2>Listen to our Podcasts</h2>
-              <h3>
+              <p>
                 Hear us speak about the word of God, charity and all other
                 topics of interest.
-              </h3>
+              </p>
             </div>
           </div>
         </div>

@@ -1,6 +1,28 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from 'axios'
 
 const Contact = () => {
+
+  const [contact, setContact] = useState('')
+
+  const handleInputChange = (e) => {
+    setContact( (previousDetails) => {
+      return {...previousDetails, [e.target.name]: e.target.value}
+    }) 
+  }
+
+  const contactForm = (e) => {
+    e.preventDefault()
+
+    axios.post('', contact)
+    .then( (res) => {
+      console.log(res.data)
+    })
+    .catch( (err) => {
+      console.log(err)
+    })
+  }
+
   return (
     <div className="volunteer" id="navbar">
       <div className="volunteer-banner">
@@ -14,27 +36,30 @@ const Contact = () => {
             us and also get your questions answered.
           </h2>
 
-          <form action="/action_page.php">
-            <label for="fname">Name</label>
+          <form action="/action_page.php" onSubmit={contactForm}>
+            <label htmlFor="fname">Name</label>
             <input
+                  onChange={handleInputChange}
               type="text"
               className="contact name"
               id="fname"
               name="fname"
-              placeholder="First name"
+              placeholder="First Name"
               required
             />
             <input
+                  onChange={handleInputChange}
               type="text"
               className="contact name"
               id="lname"
               name="lname"
-              placeholder="Last name"
+              placeholder="Last Name"
               required
             />
 
-            <label for="email">Email</label>
+            <label htmlFor="email">Email</label>
             <input
+                  onChange={handleInputChange}
               type="text"
               className="contact name"
               name="email"
@@ -42,8 +67,9 @@ const Contact = () => {
               required
             />
 
-            <label for="pnumber">Phone Number</label>
+            <label htmlFor="pnumber">Phone Number</label>
             <input
+                  onChange={handleInputChange}
               type="text"
               className="contact name"
               id="pnumber"
@@ -51,8 +77,9 @@ const Contact = () => {
               required
             />
 
-            <label for="address">Address</label>
+            <label htmlFor="address">Address</label>
             <input
+                  onChange={handleInputChange}
               type="text"
               className="contact name"
               name="address"
@@ -60,8 +87,10 @@ const Contact = () => {
               required
             />
 
-            <label for="message">What would you like to discuss?</label>
-            <textarea name="message" id="message" required></textarea>
+            <label htmlFor="message">What would you like to discuss?</label>
+            <textarea
+                  onChange={handleInputChange}
+                  name="message" id="message" required></textarea>
 
             <button className="volunteer-button">Submit</button>
           </form>

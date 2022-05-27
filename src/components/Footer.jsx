@@ -40,8 +40,7 @@ const Footer = () => {
           </div>
 
           <div className="footer-mobile-second-seec">
-            <h1>Be part of making a difference.</h1>
-            <p>Shining the light of Jesus through adolescents in Nigeria.</p>
+            <h3>Be part of making a difference.</h3>
         <Link to="volunteer">
           <button className="footer-button">Volunteer</button>
         </Link>
