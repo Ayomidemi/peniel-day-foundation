@@ -1,10 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRightAlt,
-} from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faClock, faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import {  faClock, faPlayCircle, faRightLong } from '@fortawesome/free-solid-svg-icons'
 
 
 import img1 from "../img/pod1.jpg";
@@ -317,7 +314,7 @@ const Home = () => {
             icon={
               <Link to="/maiden">
                 {" "}
-                <ArrowRightAlt />{" "}
+                <FontAwesomeIcon icon={faRightLong} />
               </Link>
             }
           />
@@ -327,14 +324,14 @@ const Home = () => {
             icon={
               <Link to="/leader">
                 {" "}
-                <ArrowRightAlt />{" "}
+                <FontAwesomeIcon icon={faRightLong} />
               </Link>
             }
           />
           <PodcastItem img={img2} name="peniel day" icon={
           <Link to="/peniel">
           {" "}
-          <ArrowRightAlt />{" "}
+          <FontAwesomeIcon icon={faRightLong} />
         </Link>} />
         </div>
       </div>

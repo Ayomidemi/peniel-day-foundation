@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRightAlt } from "@material-ui/icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {   faRightLong } from '@fortawesome/free-solid-svg-icons'
 
 import img1 from "../img/pod1.jpg";
 import img2 from "../img/grid1.jpg";
@@ -59,7 +60,7 @@ const Podcast = () => {
           icon={
             <Link to="/maiden">
               {" "}
-              <ArrowRightAlt />{" "}
+              <FontAwesomeIcon icon={faRightLong} />
             </Link>
           }
         />
@@ -69,7 +70,7 @@ const Podcast = () => {
           icon={
             <Link to="/leader">
               {" "}
-              <ArrowRightAlt />{" "}
+              <FontAwesomeIcon icon={faRightLong} />
             </Link>
           }
         />
@@ -79,7 +80,7 @@ const Podcast = () => {
           icon={
             <Link to="/peniel">
             {" "}
-            <ArrowRightAlt />{" "}
+            <FontAwesomeIcon icon={faRightLong} />
           </Link>
         }
         />
