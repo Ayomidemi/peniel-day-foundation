@@ -18,6 +18,7 @@ import LeaderShip from './components/LeaderShip';
 import RaisingLeaders from './components/RaisingLeaders';
 import PenielIntro from './components/PenielIntro';
 import WhatWeDo from './components/WhatWeDo';
+import ScrollToTop from './components/ScrollToTop';
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
     <div className='contain'>
 
     <BrowserRouter>
+<ScrollToTop>
 
     <NavBar />
 
@@ -49,6 +51,7 @@ const App = () => {
     <Footer />
 
     <ScrollButton />
+</ScrollToTop>
 
   </BrowserRouter>
 

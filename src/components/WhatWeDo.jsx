@@ -2,7 +2,7 @@ import React from "react";
 
 import eye from "../img/eye.png";
 import rocket from "../img/rocket.svg";
-// import RoadMap from "./RoadMap";
+import RoadMap from "./RoadMap";
 
 const WhatWeDo = () => {
   return (
@@ -57,7 +57,7 @@ const WhatWeDo = () => {
           </p>
         </div>
         
-        {/* <RoadMap /> */}
+        <RoadMap />
         </div>
        
       </div>

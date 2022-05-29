@@ -13,8 +13,7 @@
   position: inherit;
 }
 .container-road {
-  width: 80%;
-  // height: 200vh;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -61,28 +60,7 @@
   justify-content: center;
   align-items: center;
 
-  & > *:nth-of-type(2n + 1) {
-    // justify-content: end;
-
-    div {
-      border-radius: 50px;
-      // text-align: right;
-    }
-    p {
-      border-radius: 40px 0 50px 0;
-    }
-  }
-  & > *:nth-of-type(2n) {
-    // justify-content: end;
-
-    div {
-      border-radius: 50px;
-      // text-align: left;
-    }
-    p {
-      border-radius: 0 40px 0 40px;
-    }
-  }
+ 
 }
 .road-item {
   width: 100%;
@@ -96,17 +74,14 @@
   width: 100%;
   height: 40vh;
   padding: 1rem;
-  // border: 3px solid $secondary;
-  // margin: 0 2rem;
+  
 }
 .box-road {
   height: 100%;
   width: 100%;
-  // background: $secondary-light;
   padding: 1rem;
   position: relative;
-  // box-sizing: 1px solid $primary;
-  align-items: center;
+  text-align: start;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -121,6 +96,7 @@
 }
 .subtitle-light-road {
   display: block;
+  width: 100%;
   margin: 0.5rem;
   font-weight: 400;
   font-size: 1.1rem;
@@ -133,8 +109,8 @@
   width: 85%;
 
   img {
-    width: 100%;
-    height: 40vh;
+    width: 50%;
+    height: 50%;
     border-radius: 50px;
     object-fit: cover;
     // margin: 0 2rem;
@@ -160,49 +136,33 @@
 /* RESPONSIVE */
 
 @media (max-width: 60em) {
-  .container-road {
-    width: 90%;
-  }
   .typewriter-road {
     font-size: 1.8rem;
-  }
-  .road-items {
-    width: 90%;
-
-    & > *:nth-of-type(2n + 1) {
-      justify-content: center;
-
-      div {
-        border-radius: 0 50px 0 50px;
-        // text-align: left;
-      }
-      p {
-        border-radius: 0 40px 0 40px;
-      }
-    }
-
-    & > *:nth-of-type(2n) {
-      justify-content: center;
-    }
-  }
-  .road-item {
-    justify-content: center;
   }
   .container-item {
     width: 100%;
     height: 100%;
-  }
-  .vector-container {
-    left: 2rem;
-  }
-  .ball {
-    left: 2rem;
+    padding: 0rem;
   }
   .roasd {
     display: flex;
     flex-direction: column;
     width: 70%;
     margin: 0.5rem 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .box-road {
+    text-align: center;
+    padding: 0rem;
+    margin: 1rem 0rem;
+  }
+  .subtitle-road {
+    font-size: 1.5rem;
+    width: 100%;
   }
   .roasd2 {
     display: flex;
@@ -215,5 +175,9 @@
 @media (max-width: 40em) {
   .typewriter-road {
     font-size: 1.4rem;
+  }
+  .subtitle-road {
+    font-size: 1.3rem;
+    width: 100%;
   }
 }
