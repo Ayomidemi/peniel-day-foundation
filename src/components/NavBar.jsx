@@ -48,19 +48,23 @@ const NavBar = () => {
               <li className="active"> Home </li>
             </Link>
 
-            <Link to="ourcause">
+            <Link to="/ourcause">
               <li> Our Cause </li>
             </Link>
 
-            <Link to="team">
+            <Link to="/team">
               <li> Team </li>
             </Link>
 
-            <Link to="whatwedo">
+            <Link to="/whatwedo">
               <li> What We Do </li>
             </Link>
 
-            <Link to="contact">
+            <Link to="/podcast">
+              <li> Podcast </li>
+            </Link>
+
+            <Link to="/contact">
               <li> Contact Us </li>
             </Link>
           </ul>

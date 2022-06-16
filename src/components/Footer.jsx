@@ -15,7 +15,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-banner">
         <h1>Be part of making a difference.</h1>
-        <p>Shining the light of Jesus through adolescentsin Nigeria.</p>
+        <p>Shining the light of Jesus through adolescents in Nigeria.</p>
 
         <Link to="volunteer">
           <button className="footer-button">Volunteer</button>
@@ -84,7 +84,7 @@ const Footer = () => {
             </div>
 
             <p>Shining the light of Jesus through adolescents in Nigeria.</p>
-
+ 
             <div className="footer-icons">
               <a href="https://www.facebook.com/PenielDayFoundation/">
                 <Facebook className="icons" />
@@ -124,25 +124,25 @@ const Footer = () => {
             <div className="list-title">Peniel day</div>
             <div className="list-right">
               <div className="list">
-                <Link to="/">HOME </Link>
+                <Link to="/">Home </Link>
               </div>
               <div className="list">
-                <Link to="ourcause"> ABOUT US </Link>{" "}
-              </div>
-              <div className="list">
-                {" "}
-                <Link to="whatwedo">PROGRAMS </Link>
+                <Link to="ourcause"> About Us </Link>{" "}
               </div>
               <div className="list">
                 {" "}
-                <Link to="volunteer"> VOLUNTEER </Link>{" "}
+                <Link to="whatwedo">Programs </Link>
               </div>
               <div className="list">
                 {" "}
-                <a href="https://paystack.com/pay/penielday"> DONATION </a>
+                <Link to="volunteer"> Volunteer </Link>{" "}
               </div>
               <div className="list">
-                <Link to="contact"> CONTACT US </Link>{" "}
+                {" "}
+                <a href="https://paystack.com/pay/penielday"> Donation </a>
+              </div>
+              <div className="list">
+                <Link to="contact"> Contact Us </Link>{" "}
               </div>
             </div>
           </div>

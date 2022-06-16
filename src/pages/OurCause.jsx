@@ -27,7 +27,7 @@ const OurCause = () => {
 
           <p>
             We broke out into groups to have personable conversations with these
-            boys, I had the rare opportunity to speak with about 7 or 1o boys
+            boys, I had the rare opportunity to speak with about 7 or 10 boys
             that day. I wrote their names down after that meeting but
             unfortunately, I do not know where that paper is right now. One name
             I remember vividly is Emmanuel.

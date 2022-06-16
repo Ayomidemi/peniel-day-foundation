@@ -3,7 +3,9 @@ import axios from 'axios'
 
 const Volunteer = () => {
 
-  const [volunteer, setVolunteer] = useState('')
+  const [volunteer, setVolunteer] = useState({
+    
+  })
 
   const handleInputChange = (e) => {
     setVolunteer( (previousDetails) => {
@@ -14,7 +16,7 @@ const Volunteer = () => {
   const volunteerForm = (e) => {
     e.preventDefault()
 
-    axios.post('', volunteer)
+    axios.post('http://127.0.0.1:8000/volunteer/api/volunteer-create', volunteer)
     .then( (res) => {
       console.log(res.data)
     })

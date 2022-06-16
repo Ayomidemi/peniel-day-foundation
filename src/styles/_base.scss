@@ -12,13 +12,13 @@ input, textarea {
     -ms-user-select: text;
     user-select: text;
   }
-html {
-    font-size: 15px;
-}
 
 body {
-    font-family: 'Helvetica'; 
+    font-family: 'Helvetica '; 
 }
+// html {
+//     font-size: 16px;
+// }
 body::-webkit-scrollbar{ 
     width: 8px;
 }

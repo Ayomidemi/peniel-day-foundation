@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faClock, faPlayCircle, faRightLong } from '@fortawesome/free-solid-svg-icons'
+import { faRightLong } from '@fortawesome/free-solid-svg-icons'
 
 
 import img1 from "../img/pod1.jpg";
@@ -467,15 +467,13 @@ const Home = () => {
                 <img src={abimbola} alt="" />
 
                 <div className="hhs">
-                  <h3> Abimbola Ayodele</h3>
+                  <h4> Abimbola Ayodele</h4>
                   <h4>
                     {" "}
-                    22nd October, 2021{" "}
-                    
-                <FontAwesomeIcon icon={faClock} style={{fontSize: "1rem"}}/>
+                    22nd October, 2021{" "}                    
                   </h4>
                 </div>
-              </div>
+              </div> 
             </div>
           </div>
 
@@ -511,11 +509,10 @@ const Home = () => {
                 <img src={abimbola} alt="" />
 
                 <div className="hhs">
-                  <h3> Abimbola Ayodele</h3>
+                  <h4> Abimbola Ayodele</h4>
                   <h4>
                     {" "}
                     22nd October, 2021{" "}
-                <FontAwesomeIcon icon={faClock} style={{fontSize: "1rem"}}/>
                   </h4>
                 </div>
               </div>
@@ -556,11 +553,10 @@ const Home = () => {
                 <img src={abimbola} alt="" />
 
                 <div className="hhs">
-                  <h3> Abimbola Ayodele</h3>
+                  <h4> Abimbola Ayodele</h4>
                   <h4>
                     {" "}
                     22nd October, 2021{" "}
-                <FontAwesomeIcon icon={faClock} style={{fontSize: "1rem"}}/>
                   </h4>
                 </div>
               </div>
@@ -570,30 +566,6 @@ const Home = () => {
 
         </div>
       </div>
-
-      {/* LISTEN TO OUR PODCAST SECTION */}
-        {/* LISTEN TO OUR PODCAST SECTION */}
-
-        <div className="listen-podcast-container">
-          <div className="listen-to-podcast">
-            <div className="listen-image-contaib">  
-            <Link to='/podcast'>
-              <button>
-                Listen to our Podcasts 
-                <FontAwesomeIcon icon={faPlayCircle} style={{marginLeft: '5px'}}/>
-              </button>
-            </Link>
-              
-            </div>
-            <div className="listen-text-container">
-              <h2>Listen to our Podcasts</h2>
-              <p>
-                Hear us speak about the word of God, charity and all other
-                topics of interest.
-              </p>
-            </div>
-          </div>
-        </div>
     </div>
   );
 };

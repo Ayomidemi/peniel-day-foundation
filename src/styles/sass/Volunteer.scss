@@ -27,6 +27,7 @@
   bottom: 7rem;
   position: relative;
   background: $white;
+  box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.25), 0px 7px 12px rgba(185, 184, 184, 0.12);
 }
 .volunteer-form {
   width: 70%;
@@ -55,7 +56,8 @@
     font-size: 15px;
     letter-spacing: 0.1px;
     background: none;
-    border: 1px solid $grey;
+    border: 1px solid lightgrey;
+    color: lightgrey;
   }
 
   select {
@@ -72,7 +74,8 @@
     font-size: 15px;
     letter-spacing: 0.1px;
     background: none;
-    border: 1px solid $grey;
+    border: 1px solid lightgrey;
+    color: lightgrey;
 
     option {
       margin: 2rem 0;
@@ -92,7 +95,8 @@
     outline: none;
     background: none;
     letter-spacing: 0px;
-    border: 1px solid $grey;
+    border: 1px solid lightgrey;
+    color: lightgrey;
   }
 }
 .department {
@@ -143,6 +147,7 @@
   }
   .volunteer-container {
     width: 100%;
+    box-shadow: none;
   }
   .volunteer-form {
     width: 90%;

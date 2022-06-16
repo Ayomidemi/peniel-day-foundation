@@ -3,7 +3,9 @@ import axios from 'axios'
 
 const Contact = () => {
 
-  const [contact, setContact] = useState('')
+  const [contact, setContact] = useState({
+
+  })
 
   const handleInputChange = (e) => {
     setContact( (previousDetails) => {
@@ -14,7 +16,7 @@ const Contact = () => {
   const contactForm = (e) => {
     e.preventDefault()
 
-    axios.post('', contact)
+    axios.post('http://127.0.0.1:8000/contact/api/contact-create', contact)
     .then( (res) => {
       console.log(res.data)
     })
@@ -32,7 +34,7 @@ const Contact = () => {
       <div className="volunteer-container">
         <div className="volunteer-form">
           <h2>
-            Want to chat? We'd love to hear from you! Get in touch in touch with
+            Want to chat? We'd love to hear from you! Get in touch with
             us and also get your questions answered.
           </h2>
 
@@ -70,7 +72,7 @@ const Contact = () => {
             <label htmlFor="pnumber">Phone Number</label>
             <input
                   onChange={handleInputChange}
-              type="text"
+              type="number"
               className="contact name"
               id="pnumber"
               placeholder="Phone Number"

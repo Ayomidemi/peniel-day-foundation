@@ -42,9 +42,9 @@
     cursor: pointer;
     width: 10rem;
     background: $white;
-    color: $secondary;
+    color: $black;
     padding: 15px;
-    border: 1px solid $secondary;
+    border: none;
     border-radius: 8px;
     text-align: center;
     transition: all 0.2s ease;
@@ -96,7 +96,7 @@
 }
 .list-title {
     font-size: 1.3rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: $primary;
     margin: 1rem 0;
 }
@@ -107,7 +107,7 @@
 .list {
     text-decoration: none;
     list-style: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin: .4rem 0;
     width: fit-content;
     cursor: pointer;
