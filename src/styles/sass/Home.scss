@@ -40,10 +40,11 @@
   }
   p {
     margin: 1rem 0;
+    font-weight: lighter;
   }
 }
 .box-home {
-  justify-content: space-between;
+  justify-content: space-around;
   margin-top: 3rem;
 }
 .btn-home {
@@ -285,7 +286,7 @@
     }
   }
   .btn-home {
-    width: 8rem;
+    width: 7.5rem;
   }
   .grid-container {
     flex-direction: column;

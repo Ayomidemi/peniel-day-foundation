@@ -47,9 +47,9 @@ const Footer = () => {
           </div>
 
         <div className="mobile-links"> 
-          <Link to="/">HOME </Link>
-        <Link to="whatwedo">PROGRAMS </Link>
-        <Link to="contact">CONTACT </Link>
+          <Link to="/">Home </Link>
+        <Link to="whatwedo">Programs </Link>
+        <Link to="contact">Contact </Link>
         </div>
 
         <div className="footer-mobile-icons">
