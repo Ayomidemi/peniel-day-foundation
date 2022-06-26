@@ -37,6 +37,7 @@ import grid29 from "../img/homegrid2.jpg";
 import news1 from "../img/news1.png";
 import news2 from "../img/news2.png";
 import abimbola from "../img/abimbola.jpg";
+import foluso from "../img/foluso.jpg";
 
 const PodcastItem = ({ img, name = "", icon }) => {
   return (
@@ -550,10 +551,10 @@ const Home = () => {
               </p>
 
               <div className="news-bottom">
-                <img src={abimbola} alt="" />
+                <img src={foluso} alt="" />
 
                 <div className="hhs">
-                  <h4> Abimbola Ayodele</h4>
+                  <h4>Foluso Ajayi</h4>
                   <h4>
                     {" "}
                     22nd October, 2021{" "}

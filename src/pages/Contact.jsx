@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Contact = () => {
   const [contact, setContact] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    phoneNumber: "",
+    phone_number: "",
     address: "",
-    message: "",
+    discussion: "",
   });
   console.log(contact);
+
+  const [token, setToken] = useState('')
+
+  useEffect(() => {
+    setToken("accessToken");
+  }, []);
 
   const handleInputChange = (e) => {
     setContact((previousDetails) => {
@@ -21,10 +27,17 @@ const Contact = () => {
   const contactForm = (e) => {
     e.preventDefault();
 
+    const headers = {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+
     axios
       .post(
-        "https://peniel-server.herokuapp.com/contact/api/contact-create",
-        contact
+        "https://peniel-server.herokuapp.com/contact/api/contact-create/",
+        contact,
+        {headers}
       )
       .then((res) => {
         console.log(res.data);
@@ -53,8 +66,8 @@ const Contact = () => {
               onChange={handleInputChange}
               type="text"
               className="contact name"
-              name="firstName"
-              value={contact.firstName}
+              name="first_name"
+              value={contact.first_name}
               placeholder="First Name"
               required
             />
@@ -62,8 +75,8 @@ const Contact = () => {
               onChange={handleInputChange}
               type="text"
               className="contact name"
-              name="lastName"
-              value={contact.lastName}
+              name="last_name"
+              value={contact.last_name}
               placeholder="Last Name"
               required
             />
@@ -84,8 +97,8 @@ const Contact = () => {
               onChange={handleInputChange}
               type="number"
               className="contact name"
-              name="phoneNumber"
-              value={contact.phoneNumber}
+              name="phone_number"
+              value={contact.phone_number}
               placeholder="Phone Number"
               required
             />
@@ -104,8 +117,8 @@ const Contact = () => {
             <label htmlFor="message">What would you like to discuss?</label>
             <textarea
               onChange={handleInputChange}
-              value={contact.message}
-              name="message"
+              name="discussion"
+              value={contact.discussion}
               id="message"
               required
             ></textarea>

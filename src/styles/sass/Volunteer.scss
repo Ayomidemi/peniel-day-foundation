@@ -56,7 +56,7 @@
     letter-spacing: 0.1px;
     background: none;
     border: 1px solid lightgrey;
-    color: lightgrey;
+    color: $grey;
   }
 
   select {
@@ -74,7 +74,6 @@
     letter-spacing: 0.1px;
     background: none;
     border: 1px solid lightgrey;
-    color: lightgrey;
 
     option {
       margin: 2rem 0;

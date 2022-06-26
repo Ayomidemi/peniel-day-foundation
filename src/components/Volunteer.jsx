@@ -1,18 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Volunteer = () => {
   const [volunteer, setVolunteer] = useState({
-    firstName: "",
-    lastName: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    phoneNumber: "",
+    phone_number: "",
     address: "",
-    dob: "",
+    date_of_birth: "",
     skills: "",
-    salvationStory: "",
-    volunteer: "",
+    story: "",
+    Volunteer_reason: "",
   });
+  console.log(volunteer)
+
+  const [token, setToken] = useState('')
+
+  useEffect(() => {
+    setToken("accessToken");
+  }, []);
 
   const handleInputChange = (e) => {
     setVolunteer((previousDetails) => {
@@ -23,10 +30,17 @@ const Volunteer = () => {
   const volunteerForm = (e) => {
     e.preventDefault();
 
+    const headers = {
+      Accept: "application/json",
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    };
+
     axios
       .post(
-        "https://peniel-server.herokuapp.com/volunteer/api/volunteer-create",
-        volunteer
+        "https://peniel-server.herokuapp.com/volunteer/api/volunteer-create/",
+        volunteer,
+        {headers}
       )
       .then((res) => {
         console.log(res.data);
@@ -55,16 +69,17 @@ const Volunteer = () => {
               onChange={handleInputChange}
               type="text"
               className="contact name"
-              name="firstName"
-              value={volunteer.firstName}
+              name="first_name"
+              placeholder="First name"
+              value={volunteer.first_name}
               required
             />
             <input
               onChange={handleInputChange}
               type="text"
               className="contact name"
-              name="lastName"
-              value={volunteer.lastName}
+              name="last_name"
+              value={volunteer.last_name}
               placeholder="Last name"
               required
             />
@@ -83,9 +98,9 @@ const Volunteer = () => {
             <label htmlFor="pnumber">Phone Number</label>
             <input
               onChange={handleInputChange}
-              value={volunteer.phoneNumber}
+              value={volunteer.phone_number}
               type="tel"
-              name="phoneNumber"
+              name="phone_number"
               placeholder="Phone Number"
               className="contact name"
               required
@@ -107,9 +122,9 @@ const Volunteer = () => {
                 <label htmlFor="dob">Date of Birth</label>
                 <input
                   onChange={handleInputChange}
-                  value={volunteer.dob}
+                  value={volunteer.date_of_birth}
                   type="date"
-                  name="dob"
+                  name="date_of_birth"
                   className="contact name"
                   required
                 />
@@ -120,8 +135,7 @@ const Volunteer = () => {
                 <select
                   onChange={handleInputChange}
                   value={volunteer.skills}
-                  id="department"
-                  name="department"
+                  name="skills"
                   className="contact name"
                 >
                   <option value="department">Departments</option>
@@ -139,8 +153,8 @@ const Volunteer = () => {
             <label htmlFor="message">What is your salvation story?</label>
             <textarea
               onChange={handleInputChange}
-              name="message"
-              value={volunteer.salvationStory}
+              name="story"
+              value={volunteer.story}
               id="message"
               required
             ></textarea>
@@ -148,8 +162,8 @@ const Volunteer = () => {
             <label htmlFor="message">Why do you want to volunteer?</label>
             <textarea
               onChange={handleInputChange}
-              name="message"
-              value={volunteer.volunteer}
+              name="Volunteer_reason"
+              value={volunteer.Volunteer_reason}
               id="message"
               required
             ></textarea>
