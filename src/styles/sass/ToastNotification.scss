@@ -1,0 +1,67 @@
+.toast-notification {
+    background-color: $white;
+    position: fixed;
+    right: 1rem;
+    top: 6rem;
+    z-index: 5;
+    max-width: 380px;
+    width: auto;
+    padding: 1rem 1.2rem;
+    border-radius: .8rem;
+    box-shadow: $box-shadow;
+    animation: slideIn 1.4s cubic-bezier(1, 0.19, 0.51, 1.19);
+
+    .notification-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+
+        p {
+            margin-left: 1.9rem;
+            line-height: 1.3rem;
+            font-size: 1rem;
+            font-weight: 500;
+
+            a {
+                color: $secondary;
+                text-decoration: underline;
+            }
+        }
+
+        .icon {
+            float: left;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .success {
+            color: $secondary;
+        }
+        .error {
+            color: red;
+        }
+        .close {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            transition: .2s linear;
+
+            &:hover {
+                background-color: #dcdcdc;
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        right: -100%;
+    }
+    to {
+        right: 1rem;
+    }
+}

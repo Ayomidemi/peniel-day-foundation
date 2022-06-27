@@ -1,7 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import ToastNotification from "./ToastNotification";
+import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
 
 const Volunteer = () => {
+  const [submit, setSubmit] = useState(false);
+  const [message, setMessage] = useState({
+    type: "",
+    msg: "",
+  });
+
   const [volunteer, setVolunteer] = useState({
     first_name: "",
     last_name: "",
@@ -13,13 +21,7 @@ const Volunteer = () => {
     story: "",
     Volunteer_reason: "",
   });
-  console.log(volunteer)
-
-  const [token, setToken] = useState('')
-
-  useEffect(() => {
-    setToken("accessToken");
-  }, []);
+  console.log(volunteer);
 
   const handleInputChange = (e) => {
     setVolunteer((previousDetails) => {
@@ -29,25 +31,60 @@ const Volunteer = () => {
 
   const volunteerForm = (e) => {
     e.preventDefault();
-
-    const headers = {
-      Accept: "application/json",
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    };
+    setSubmit(true);
 
     axios
       .post(
         "https://peniel-server.herokuapp.com/volunteer/api/volunteer-create/",
-        volunteer,
-        {headers}
+        volunteer
       )
       .then((res) => {
-        console.log(res.data);
+        setMessage({
+          type: "success",
+          msg: res.data.message,
+        });
+
+        setTimeout(() => {
+          setMessage({
+            type: "",
+            msg: "",
+          });
+          setSubmit(false);
+        }, 3000);
+
+        setVolunteer({
+          first_name: "",
+          last_name: "",
+          email: "",
+          phone_number: "",
+          address: "",
+          date_of_birth: "",
+          skills: "",
+          story: "",
+          Volunteer_reason: "",
+        });
       })
       .catch((err) => {
-        console.log(err);
+        setSubmit(false);
+        setMessage({
+          type: "error",
+          msg: err.response.data.message,
+        });
+
+        setTimeout(() => {
+          setMessage({
+            type: "",
+            msg: "",
+          });
+        }, 8000);
       });
+  };
+
+  const handleCloseNotification = () => {
+    setMessage({
+      type: "",
+      msg: "",
+    });
   };
 
   return (
@@ -55,6 +92,19 @@ const Volunteer = () => {
       <div className="volunteer-banner">
         <h1>Volunteer </h1>
       </div>
+      {message.msg !== "" && (
+        <ToastNotification
+          type={message.type}
+          text={
+            message.type === "error"
+              ? message.msg
+              : "Form successfully submitted. God bless you!"
+          }
+          onclick={handleCloseNotification}
+          icon={message.type === "success" ? faCheckCircle : faWarning}
+        />
+      )}
+      {submit}
 
       <div className="volunteer-container">
         <div className="volunteer-form">
@@ -168,7 +218,9 @@ const Volunteer = () => {
               required
             ></textarea>
 
-            <button className="volunteer-button">Submit</button>
+            <button type="submit" className="volunteer-button">
+              Submit
+            </button>
           </form>
         </div>
       </div>
