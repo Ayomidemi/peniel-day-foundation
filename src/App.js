@@ -21,8 +21,6 @@ import WhatWeDo from './components/WhatWeDo';
 import ScrollToTop from './components/ScrollToTop';
 
 
-
-
 const App = () => {
   return (
     <div className='contain'>
