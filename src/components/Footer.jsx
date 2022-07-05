@@ -109,7 +109,7 @@ const Footer = () => {
             <div className="list-title">contact us</div>
             <div className="lit">
             <FontAwesomeIcon icon={faPhone} className="icons-middle"/>
-               +234 (0) 703 111 0531{" "}
+            <a href="tel:+2347031110531">+234 (0) 703 111 0531</a>
             </div>
             <div className="lit">
             <FontAwesomeIcon icon={faEnvelope} className="icons-middle"/>
