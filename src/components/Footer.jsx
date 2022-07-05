@@ -50,6 +50,7 @@ const Footer = () => {
           <Link to="/">Home </Link>
         <Link to="whatwedo">Programs </Link>
         <Link to="contact">Contact </Link>
+        <a href="https://paystack.com/pay/penielday"  target='blank'> Donation </a>
         </div>
 
         <div className="footer-mobile-icons">
@@ -112,7 +113,7 @@ const Footer = () => {
             </div>
             <div className="lit">
             <FontAwesomeIcon icon={faEnvelope} className="icons-middle"/>
-               light@penielday.org{" "}
+            <a href="mailto:light@penielday.org">Email Us</a>
             </div>
             <div className="lit">
             <FontAwesomeIcon icon={faLocationDot} className="icons-middle"/>
@@ -139,7 +140,7 @@ const Footer = () => {
               </div>
               <div className="list">
                 {" "}
-                <a href="https://paystack.com/pay/penielday"> Donation </a>
+                <a href="https://paystack.com/pay/penielday"  target='blank'> Donation </a>
               </div>
               <div className="list">
                 <Link to="contact"> Contact Us </Link>{" "}

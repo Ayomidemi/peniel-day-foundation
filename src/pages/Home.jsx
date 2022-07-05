@@ -79,7 +79,8 @@ const Home = () => {
                 {" "}
                 <button className="btn-home"> Join Us</button>{" "}
               </Link>
-              <a href="https://paystack.com/pay/penielday">
+              <a href="https://paystack.com/pay/penielday"  target='blank'>
+               
                 <button className="btn-home" style={{ background: "#009346" }}>
                   {" "}
                   Donate
@@ -176,7 +177,7 @@ const Home = () => {
               skills to be great citizens. -Matthew 5:1-2
             </p>
 
-            <a href="https://paystack.com/pay/penielday">
+            <a href="https://paystack.com/pay/penielday"  target='blank'>
               <button className="btn-home" style={{ background: "#009346" }}>
                 {" "}
                 Donate
@@ -416,7 +417,7 @@ const Home = () => {
                 Join Us
               </button>{" "}
             </Link>
-            <a href="https://paystack.com/pay/penielday">
+            <a href="https://paystack.com/pay/penielday"  target='blank'>
               <button className="btn-home" style={{ background: "#009346" }}>
                 {" "}
                 Donate

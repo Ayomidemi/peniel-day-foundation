@@ -71,7 +71,7 @@ const NavBar = () => {
         </div>
 
         <div className="desktop">
-          <a href="https://paystack.com/pay/penielday">
+          <a href="https://paystack.com/pay/penielday"  target='blank'>
             <button className="btn"> Donate</button>
           </a>
         </div>
