@@ -113,7 +113,7 @@ const Footer = () => {
             </div>
             <div className="lit">
             <FontAwesomeIcon icon={faEnvelope} className="icons-middle"/>
-            <a href="mailto:light@penielday.org">Email Us</a>
+            <a href="mailto:light@penielday.org">light@penielday.org</a>
             </div>
             <div className="lit">
             <FontAwesomeIcon icon={faLocationDot} className="icons-middle"/>
