@@ -1,84 +1,84 @@
 import React, { useState } from "react";
-import axios from "axios";
-import ToastNotification from "../components/ToastNotification";
-import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
+// import axios from "axios";
+// import ToastNotification from "../components/ToastNotification";
+// import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
-  const [submit, setSubmit] = useState(false);
-  const [message, setMessage] = useState({
-    type: "",
-    msg: "",
-  });
+  // const [submit, setSubmit] = useState(false);
+  // const [message, setMessage] = useState({
+  //   type: "",
+  //   msg: "",
+  // });
 
-  const [contact, setContact] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone_number: "",
-    address: "",
-    discussion: "",
-  });
-  console.log(contact);
+  // const [contact, setContact] = useState({
+  //   first_name: "",
+  //   last_name: "",
+  //   email: "",
+  //   phone_number: "",
+  //   address: "",
+  //   discussion: "",
+  // });
+  // console.log(contact);
 
-  const handleInputChange = (e) => {
-    setContact((previousDetails) => {
-      return { ...previousDetails, [e.target.name]: e.target.value };
-    });
-  };
+  // const handleInputChange = (e) => {
+  //   setContact((previousDetails) => {
+  //     return { ...previousDetails, [e.target.name]: e.target.value };
+  //   });
+  // };
 
-  const contactForm = (e) => {
-    e.preventDefault();
-    setSubmit(true);
+  // const contactForm = (e) => {
+  //   e.preventDefault();
+  //   setSubmit(true);
 
-    axios
-      // .post(
-      //   "https://peniel-server.herokuapp.com/contact/api/contact-create/",
-      //   contact
-      // )
-      .then((res) => {
-        setMessage({
-          type: "success",
-          msg: res.data.message,
-        });
-        setTimeout(() => {
-          setMessage({
-            type: "",
-            msg: "",
-          });
-          setSubmit(false);
-        }, 3000);
+  //   axios
+  //     .post(
+  //       // "https://peniel-server.herokuapp.com/contact/api/contact-create/",
+  //       // contact
+  //     )
+  //     .then((res) => {
+  //       setMessage({
+  //         type: "success",
+  //         msg: res.data.message,
+  //       });
+  //       setTimeout(() => {
+  //         setMessage({
+  //           type: "",
+  //           msg: "",
+  //         });
+  //         setSubmit(false);
+  //       }, 3000);
 
-        setContact({
-          first_name: "",
-          last_name: "",
-          email: "",
-          phone_number: "",
-          address: "",
-          discussion: "",
-        });
-      })
-      .catch((err) => {
-        setSubmit(false);
-        setMessage({
-          type: "error",
-          msg: err.response.data.message,
-        });
+  //       setContact({
+  //         first_name: "",
+  //         last_name: "",
+  //         email: "",
+  //         phone_number: "",
+  //         address: "",
+  //         discussion: "",
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       setSubmit(false);
+  //       setMessage({
+  //         type: "error",
+  //         msg: err.response.data.message,
+  //       });
 
-        setTimeout(() => {
-          setMessage({
-            type: "",
-            msg: "",
-          });
-        }, 8000);
-      });
-  };
+  //       setTimeout(() => {
+  //         setMessage({
+  //           type: "",
+  //           msg: "",
+  //         });
+  //       }, 8000);
+  //     });
+  // };
 
-  const handleCloseNotification = () => {
-    setMessage({
-      type: "",
-      msg: "",
-    });
-  };
+  // const handleCloseNotification = () => {
+  //   setMessage({
+  //     type: "",
+  //     msg: "",
+  //   });
+  // };
 
   return (
     <div className="volunteer" id="navbar">
@@ -86,7 +86,7 @@ const Contact = () => {
         <h1>Contact Us </h1>
       </div>
 
-      {message.msg !== "" && (
+      {/* {message.msg !== "" && (
         <ToastNotification
           type={message.type}
           text={
@@ -98,7 +98,7 @@ const Contact = () => {
           icon={message.type === "success" ? faCheckCircle : faWarning}
         />
       )}
-      {submit}
+      {submit} */}
 
       <div className="volunteer-container">
         <div className="volunteer-form">
@@ -107,11 +107,11 @@ const Contact = () => {
             also get your questions answered.
           </h2>
 
-          <form name="contact" method="POST" data-netlify="true" onSubmit={contactForm}>
+          <form name="contact" method="POST" data-netlify="true" >
           <input type="hidden" name="form-name" value="contact" />
             <label htmlFor="fname">Name</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="first_name"
@@ -120,7 +120,7 @@ const Contact = () => {
               required
             />
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="last_name"
@@ -131,7 +131,7 @@ const Contact = () => {
 
             <label htmlFor="email">Email</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="email"
@@ -142,7 +142,7 @@ const Contact = () => {
 
             <label htmlFor="pnumber">Phone Number</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="number"
               className="contact name"
               name="phone_number"
@@ -153,7 +153,7 @@ const Contact = () => {
 
             <label htmlFor="address">Address</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="address"
@@ -164,7 +164,7 @@ const Contact = () => {
 
             <label htmlFor="message">What would you like to discuss?</label>
             <textarea
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               name="discussion"
               // value={contact.discussion}
               id="message"
