@@ -20,7 +20,7 @@ const Volunteer = () => {
     skills: "",
     story: "",
     Volunteer_reason: "",
-  });
+  }); 
   console.log(volunteer);
 
   const handleInputChange = (e) => {

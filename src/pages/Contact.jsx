@@ -31,10 +31,10 @@ const Contact = () => {
     setSubmit(true);
 
     axios
-      .post(
-        "https://peniel-server.herokuapp.com/contact/api/contact-create/",
-        contact
-      )
+      // .post(
+      //   "https://peniel-server.herokuapp.com/contact/api/contact-create/",
+      //   contact
+      // )
       .then((res) => {
         setMessage({
           type: "success",
@@ -107,14 +107,15 @@ const Contact = () => {
             also get your questions answered.
           </h2>
 
-          <form action="/action_page.php" onSubmit={contactForm}>
+          <form name="contact" method="POST" data-netlify="true" onSubmit={contactForm}>
+          <input type="hidden" name="form-name" value="contact" />
             <label htmlFor="fname">Name</label>
             <input
               onChange={handleInputChange}
               type="text"
               className="contact name"
               name="first_name"
-              value={contact.first_name}
+              // value={contact.first_name}
               placeholder="First Name"
               required
             />
@@ -123,7 +124,7 @@ const Contact = () => {
               type="text"
               className="contact name"
               name="last_name"
-              value={contact.last_name}
+              // value={contact.last_name}
               placeholder="Last Name"
               required
             />
@@ -134,7 +135,7 @@ const Contact = () => {
               type="text"
               className="contact name"
               name="email"
-              value={contact.email}
+              // value={contact.email}
               placeholder="Email Address"
               required
             />
@@ -145,7 +146,7 @@ const Contact = () => {
               type="number"
               className="contact name"
               name="phone_number"
-              value={contact.phone_number}
+              // value={contact.phone_number}
               placeholder="Phone Number"
               required
             />
@@ -156,7 +157,7 @@ const Contact = () => {
               type="text"
               className="contact name"
               name="address"
-              value={contact.address}
+              // value={contact.address}
               placeholder="Address"
               required
             />
@@ -165,7 +166,7 @@ const Contact = () => {
             <textarea
               onChange={handleInputChange}
               name="discussion"
-              value={contact.discussion}
+              // value={contact.discussion}
               id="message"
               required
             ></textarea>
