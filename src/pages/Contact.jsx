@@ -1,84 +1,95 @@
-import React from "react";
-// import axios from "axios";
-// import ToastNotification from "../components/ToastNotification";
-// import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import ToastNotification from "../components/ToastNotification";
+import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
-  // const [submit, setSubmit] = useState(false);
-  // const [message, setMessage] = useState({
-  //   type: "",
-  //   msg: "",
-  // });
+  const [submit, setSubmit] = useState(false);
+  const [message, setMessage] = useState({
+    type: "",
+    msg: "",
+  });
 
-  // const [contact, setContact] = useState({
-  //   first_name: "",
-  //   last_name: "",
-  //   email: "",
-  //   phone_number: "",
-  //   address: "",
-  //   discussion: "",
-  // });
-  // console.log(contact);
+  const [contact, setContact] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone_number: "",
+    address: "",
+    discussion: "",
+  });
 
-  // const handleInputChange = (e) => {
-  //   setContact((previousDetails) => {
-  //     return { ...previousDetails, [e.target.name]: e.target.value };
-  //   });
-  // };
+  const handleInputChange = (e) => {
+    setContact((previousDetails) => {
+      return { ...previousDetails, [e.target.name]: e.target.value };
+    });
+  };
 
-  // const contactForm = (e) => {
-  //   e.preventDefault();
-  //   setSubmit(true);
+  const handleCloseNotification = () => {
+    setMessage({
+      type: "",
+      msg: "",
+    });
+  };
 
-  //   axios
-  //     .post(
-  //       "https://peniel-server.herokuapp.com/contact/api/contact-create/",
-  //       contact
-  //     )
-  //     .then((res) => {
-  //       setMessage({
-  //         type: "success",
-  //         msg: res.data.message,
-  //       });
-  //       setTimeout(() => {
-  //         setMessage({
-  //           type: "",
-  //           msg: "",
-  //         });
-  //         setSubmit(false);
-  //       }, 3000);
+  function encode(data) {
+    return Object.keys(data)
+      .map(
+        (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+      )
+      .join("&");
+  }
 
-  //       setContact({
-  //         first_name: "",
-  //         last_name: "",
-  //         email: "",
-  //         phone_number: "",
-  //         address: "",
-  //         discussion: "",
-  //       });
-  //     })
-  //     .catch((err) => {
-  //       setSubmit(false);
-  //       setMessage({
-  //         type: "error",
-  //         msg: err.response.data.message,
-  //       });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmit(true);
 
-  //       setTimeout(() => {
-  //         setMessage({
-  //           type: "",
-  //           msg: "",
-  //         });
-  //       }, 8000);
-  //     });
-  // };
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        contact: event.target.getAttribute("name"),
+        // eslint-disable-next-line no-restricted-globals
+        ...name,
+      }),
+    })
+      .then((res) => {
+        setMessage({
+          type: "success",
+          msg: res.message,
+        });
+        setTimeout(() => {
+          setMessage({
+            type: "",
+            msg: "",
+          });
+          setSubmit(false);
+        }, 8000);
 
-  // const handleCloseNotification = () => {
-  //   setMessage({
-  //     type: "",
-  //     msg: "",
-  //   });
-  // };
+        setContact({
+          first_name: "",
+          last_name: "",
+          email: "",
+          phone_number: "",
+          address: "",
+          discussion: "",
+        });
+      })
+
+      .catch((err) => {
+        setSubmit(false);
+        setMessage({
+          type: "error",
+          msg: err.message,
+        });
+
+        setTimeout(() => {
+          setMessage({
+            type: "",
+            msg: "",
+          });
+        }, 8000);
+      });
+  };
 
   return (
     <div className="volunteer" id="navbar">
@@ -86,7 +97,7 @@ const Contact = () => {
         <h1>Contact Us </h1>
       </div>
 
-      {/* {message.msg !== "" && (
+      {message.msg !== "" && (
         <ToastNotification
           type={message.type}
           text={
@@ -98,7 +109,7 @@ const Contact = () => {
           icon={message.type === "success" ? faCheckCircle : faWarning}
         />
       )}
-      {submit} */}
+      {submit}
 
       <div className="volunteer-container">
         <div className="volunteer-form">
@@ -107,66 +118,66 @@ const Contact = () => {
             also get your questions answered.
           </h2>
 
-          <form name='contact' method="POST" data-netlify="true" >
-          <input type="hidden" name="form-name" value="contact"></input>
+          <form name="contact" data-netlify="true" onSubmit={handleSubmit}>
+            <input type="hidden" name="form-name" value="contact"></input>
             <label htmlFor="fname">Name</label>
             <input
-              // onChange={handleInputChange}
+              onChange={handleInputChange}
               type="text"
               className="contact name"
               name="first_name"
-              // value={contact.first_name}
+              value={contact.first_name}
               placeholder="First Name"
               required
             />
             <input
-              // onChange={handleInputChange}
+              onChange={handleInputChange}
               type="text"
               className="contact name"
               name="last_name"
-              // value={contact.last_name}
+              value={contact.last_name}
               placeholder="Last Name"
               required
             />
 
             <label htmlFor="email">Email</label>
             <input
-              // onChange={handleInputChange}
+              onChange={handleInputChange}
               type="text"
               className="contact name"
               name="email"
-              // value={contact.email}
+              value={contact.email}
               placeholder="Email Address"
               required
             />
 
             <label htmlFor="pnumber">Phone Number</label>
             <input
-              // onChange={handleInputChange}
+              onChange={handleInputChange}
               type="number"
               className="contact name"
               name="phone_number"
-              // value={contact.phone_number}
+              value={contact.phone_number}
               placeholder="Phone Number"
               required
             />
 
             <label htmlFor="address">Address</label>
             <input
-              // onChange={handleInputChange}
+              onChange={handleInputChange}
               type="text"
               className="contact name"
               name="address"
-              // value={contact.address}
+              value={contact.address}
               placeholder="Address"
               required
             />
 
             <label htmlFor="message">What would you like to discuss?</label>
             <textarea
-              // onChange={handleInputChange}
+              onChange={handleInputChange}
               name="discussion"
-              // value={contact.discussion}
+              value={contact.discussion}
               id="message"
               required
             ></textarea>

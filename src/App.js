@@ -44,6 +44,9 @@ const App = () => {
         <Route path="peniel" element={<PenielIntro />} />
         <Route path="whatwedo" element={<WhatWeDo/>} />
 
+        <Route path="*" element={<Home />} />
+
+
     </Routes>
 
     <Footer />
