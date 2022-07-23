@@ -1,98 +1,98 @@
-import React, { useState } from "react";
-import axios from "axios";
-import ToastNotification from "./ToastNotification";
-import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
+// import axios from "axios";
+// import ToastNotification from "./ToastNotification";
+// import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
 
 const Volunteer = () => {
-  const [submit, setSubmit] = useState(false);
-  const [message, setMessage] = useState({
-    type: "",
-    msg: "",
-  });
+  // const [submit, setSubmit] = useState(false);
+  // const [message, setMessage] = useState({
+  //   type: "",
+  //   msg: "",
+  // });
 
-  const [volunteer, setVolunteer] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    phone_number: "",
-    address: "",
-    date_of_birth: "",
-    skills: "",
-    story: "",
-    Volunteer_reason: "",
-  }); 
-  console.log(volunteer);
+  // const [volunteer, setVolunteer] = useState({
+  //   first_name: "",
+  //   last_name: "",
+  //   email: "",
+  //   phone_number: "",
+  //   address: "",
+  //   date_of_birth: "",
+  //   skills: "",
+  //   story: "",
+  //   Volunteer_reason: "",
+  // }); 
+  // console.log(volunteer);
 
-  const handleInputChange = (e) => {
-    setVolunteer((previousDetails) => {
-      return { ...previousDetails, [e.target.name]: e.target.value };
-    });
-  };
+  // const handleInputChange = (e) => {
+  //   setVolunteer((previousDetails) => {
+  //     return { ...previousDetails, [e.target.name]: e.target.value };
+  //   });
+  // };
 
-  const volunteerForm = (e) => {
-    e.preventDefault();
-    setSubmit(true);
+  // const volunteerForm = (e) => {
+  //   e.preventDefault();
+  //   setSubmit(true);
 
-    axios
-      .post(
-        "https://peniel-server.herokuapp.com/volunteer/api/volunteer-create/",
-        volunteer
-      )
-      .then((res) => {
-        setMessage({
-          type: "success",
-          msg: res.data.message,
-        });
+  //   axios
+  //     .post(
+  //       "https://peniel-server.herokuapp.com/volunteer/api/volunteer-create/",
+  //       volunteer
+  //     )
+  //     .then((res) => {
+  //       setMessage({
+  //         type: "success",
+  //         msg: res.data.message,
+  //       });
 
-        setTimeout(() => {
-          setMessage({
-            type: "",
-            msg: "",
-          });
-          setSubmit(false);
-        }, 3000);
+  //       setTimeout(() => {
+  //         setMessage({
+  //           type: "",
+  //           msg: "",
+  //         });
+  //         setSubmit(false);
+  //       }, 3000);
 
-        setVolunteer({
-          first_name: "",
-          last_name: "",
-          email: "",
-          phone_number: "",
-          address: "",
-          date_of_birth: "",
-          skills: "",
-          story: "",
-          Volunteer_reason: "",
-        });
-      })
-      .catch((err) => {
-        setSubmit(false);
-        setMessage({
-          type: "error",
-          msg: err.response.data.message,
-        });
+  //       setVolunteer({
+  //         first_name: "",
+  //         last_name: "",
+  //         email: "",
+  //         phone_number: "",
+  //         address: "",
+  //         date_of_birth: "",
+  //         skills: "",
+  //         story: "",
+  //         Volunteer_reason: "",
+  //       });
+  //     })
+  //     .catch((err) => {
+  //       setSubmit(false);
+  //       setMessage({
+  //         type: "error",
+  //         msg: err.response.data.message,
+  //       });
 
-        setTimeout(() => {
-          setMessage({
-            type: "",
-            msg: "",
-          });
-        }, 8000);
-      });
-  };
+  //       setTimeout(() => {
+  //         setMessage({
+  //           type: "",
+  //           msg: "",
+  //         });
+  //       }, 8000);
+  //     });
+  // };
 
-  const handleCloseNotification = () => {
-    setMessage({
-      type: "",
-      msg: "",
-    });
-  };
+  // const handleCloseNotification = () => {
+  //   setMessage({
+  //     type: "",
+  //     msg: "",
+  //   });
+  // };
 
   return (
     <div className="volunteer">
       <div className="volunteer-banner">
         <h1>Volunteer </h1>
       </div>
-      {message.msg !== "" && (
+      {/* {message.msg !== "" && (
         <ToastNotification
           type={message.type}
           text={
@@ -104,7 +104,7 @@ const Volunteer = () => {
           icon={message.type === "success" ? faCheckCircle : faWarning}
         />
       )}
-      {submit}
+      {submit} */}
 
       <div className="volunteer-container">
         <div className="volunteer-form">
@@ -113,42 +113,43 @@ const Volunteer = () => {
             shining the light of Jesus to adolescents in Nigeria.
           </h2>
 
-          <form action="/action_page.php" onSubmit={volunteerForm}>
+          <form name='volunteer' method="POST" data-netlify="true" >
+            <input type="hidden" name="form-name" value="volunteer"></input>
             <label htmlFor="fname">Name</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="first_name"
               placeholder="First name"
-              value={volunteer.first_name}
+              // value={volunteer.first_name}
               required
             />
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="last_name"
-              value={volunteer.last_name}
+              // value={volunteer.last_name}
               placeholder="Last name"
               required
             />
 
             <label htmlFor="email">Email</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="email"
-              value={volunteer.email}
+              // value={volunteer.email}
               placeholder="Email Address"
               required
             />
 
             <label htmlFor="pnumber">Phone Number</label>
             <input
-              onChange={handleInputChange}
-              value={volunteer.phone_number}
+              // onChange={handleInputChange}
+              // value={volunteer.phone_number}
               type="tel"
               name="phone_number"
               placeholder="Phone Number"
@@ -158,11 +159,11 @@ const Volunteer = () => {
 
             <label htmlFor="address">Address</label>
             <input
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               type="text"
               className="contact name"
               name="address"
-              value={volunteer.address}
+              // value={volunteer.address}
               placeholder="Address"
               required
             />
@@ -171,8 +172,8 @@ const Volunteer = () => {
               <div className="volunteer-flex-1">
                 <label htmlFor="dob">Date of Birth</label>
                 <input
-                  onChange={handleInputChange}
-                  value={volunteer.date_of_birth}
+                  // onChange={handleInputChange}
+                  // value={volunteer.date_of_birth}
                   type="date"
                   name="date_of_birth"
                   className="contact name"
@@ -183,8 +184,8 @@ const Volunteer = () => {
               <div className="volunteer-flex-2">
                 <label htmlFor="dob">Skills</label>
                 <select
-                  onChange={handleInputChange}
-                  value={volunteer.skills}
+                  // onChange={handleInputChange}
+                  // value={volunteer.skills}
                   name="skills"
                   className="contact name"
                 >
@@ -202,18 +203,18 @@ const Volunteer = () => {
 
             <label htmlFor="message">What is your salvation story?</label>
             <textarea
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               name="story"
-              value={volunteer.story}
+              // value={volunteer.story}
               id="message"
               required
             ></textarea>
 
             <label htmlFor="message">Why do you want to volunteer?</label>
             <textarea
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
               name="Volunteer_reason"
-              value={volunteer.Volunteer_reason}
+              // value={volunteer.Volunteer_reason}
               id="message"
               required
             ></textarea>
