@@ -48,12 +48,12 @@ const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": 'contact',
-        first_name: "first_name",
-          last_name: "last_name",
-          email: "email",
-          phone_number: "phone_number",
-          address: "address",
-          discussion: "discussion",
+        first_name: "",
+          last_name: "",
+          email: "",
+          phone_number: "",
+          address: "",
+          discussion: "",
       }),
     })
       .then((res) => {
