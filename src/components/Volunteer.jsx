@@ -44,15 +44,7 @@ const Volunteer = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         'form-name': 'volunteer',
-        first_name: "",
-          last_name: "",
-          email: "",
-          phone_number: "",
-          address: "",
-          date_of_birth: "",
-          skills: "",
-          salvation_story: "",
-          Volunteer_reason: "",
+        ...volunteer
       }),
     })
       .then((res) => {
@@ -139,7 +131,8 @@ const Volunteer = () => {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="volunteer"></input>
-            <input name="bot-field" type="hidden"/>
+            <div hidden><input name="bot-field" /></div>
+
             <label htmlFor="fname">Name</label>
             <input
               onChange={handleInputChange}

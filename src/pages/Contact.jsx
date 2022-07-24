@@ -48,12 +48,7 @@ const Contact = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": 'contact',
-        first_name: "",
-          last_name: "",
-          email: "",
-          phone_number: "",
-          address: "",
-          discussion: "",
+        ...contact
       }),
     })
       .then((res) => {
@@ -130,8 +125,8 @@ const Contact = () => {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact"></input>
-            <input name="bot-field" type="hidden"/>
-
+            <div hidden><input name="bot-field" /></div>
+            
             <label htmlFor="fname">Name</label>
             <input
               onChange={handleInputChange}
