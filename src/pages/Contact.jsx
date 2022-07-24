@@ -88,7 +88,6 @@ const Contact = () => {
         }, 8000);
       });
   };
-  console.log(...contact)
 
   return (
     <div className="volunteer" id="navbar">

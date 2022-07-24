@@ -87,7 +87,6 @@ const Volunteer = () => {
         }, 8000);
       });
   };
-  console.log(...volunteer)
 
   const handleCloseNotification = () => {
     setMessage({
