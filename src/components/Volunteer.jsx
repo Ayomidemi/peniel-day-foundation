@@ -43,9 +43,16 @@ const Volunteer = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': event.target.getAttribute("name"),
-        // eslint-disable-next-line no-restricted-globals
-        ...name,
+        'form-name': 'volunteer',
+        first_name: "first_name",
+          last_name: "last_name",
+          email: "email",
+          phone_number: "phone_number",
+          address: "address",
+          date_of_birth: "date_of_birth",
+          skills: "skills",
+          salvation_story: "salvation_story",
+          Volunteer_reason: "Volunteer_reason",
       }),
     })
       .then((res) => {

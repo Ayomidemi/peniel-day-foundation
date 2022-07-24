@@ -47,9 +47,13 @@ const Contact = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": event.target.getAttribute("name"),
-        // eslint-disable-next-line no-restricted-globals
-        ...name,
+        "form-name": 'contact',
+        first_name: "first_name",
+          last_name: "last_name",
+          email: "email",
+          phone_number: "phone_number",
+          address: "address",
+          discussion: "discussion",
       }),
     })
       .then((res) => {
