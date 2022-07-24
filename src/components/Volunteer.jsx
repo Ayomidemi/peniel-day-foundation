@@ -43,7 +43,7 @@ const Volunteer = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        volunteer: event.target.getAttribute("name"),
+        'form-name': event.target.getAttribute("name"),
         // eslint-disable-next-line no-restricted-globals
         ...name,
       }),
@@ -125,8 +125,10 @@ const Volunteer = () => {
 
           <form
             name="volunteer"
+            action='/'
             method="POST"
             data-netlify="true"
+            data-netlify-honeypot='bot-field'
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="volunteer"></input>

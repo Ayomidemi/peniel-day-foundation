@@ -47,7 +47,7 @@ const Contact = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        contact: event.target.getAttribute("name"),
+        "form-name": event.target.getAttribute("name"),
         // eslint-disable-next-line no-restricted-globals
         ...name,
       }),
@@ -118,7 +118,13 @@ const Contact = () => {
             also get your questions answered.
           </h2>
 
-          <form name="contact" data-netlify="true" onSubmit={handleSubmit}>
+          <form
+            name="contact"
+            action="/"
+            data-netlify="true"
+            data-netlify-honeypot='bot-field'
+            onSubmit={handleSubmit}
+          >
             <input type="hidden" name="form-name" value="contact"></input>
             <label htmlFor="fname">Name</label>
             <input
