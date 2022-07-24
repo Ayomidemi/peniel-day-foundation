@@ -128,7 +128,8 @@ const Volunteer = () => {
             action='/'
             method="POST"
             data-netlify="true"
-            data-netlify-honeypot='bot-field'
+            netlify-honeypot="bot-field"
+            data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="volunteer"></input>
