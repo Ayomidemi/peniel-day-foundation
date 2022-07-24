@@ -133,6 +133,8 @@ const Volunteer = () => {
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="volunteer"></input>
+            <input type="hidden" name="bot-field" />
+
             <label htmlFor="fname">Name</label>
             <input
               onChange={handleInputChange}
