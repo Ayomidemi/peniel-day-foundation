@@ -17,7 +17,6 @@ const Contact = () => {
     address: "",
     discussion: "",
   });
-  console.log(contact)
 
   const handleInputChange = (e) => {
     setContact((previousDetails) => {
@@ -48,9 +47,7 @@ const Contact = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": event.target.getAttribute("name"),
-        // eslint-disable-next-line no-restricted-globals
-        ...name,
+        "form-name": 'contact', ...contact
       }),
     })
       .then((res) => {
@@ -91,6 +88,7 @@ const Contact = () => {
         }, 8000);
       });
   };
+  console.log(...contact)
 
   return (
     <div className="volunteer" id="navbar">
@@ -124,6 +122,7 @@ const Contact = () => {
             action="/"
             data-netlify="true"
             data-netlify-honeypot='bot-field'
+            data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact"></input>
@@ -190,6 +189,7 @@ const Contact = () => {
               id="message"
               required
             ></textarea>
+            <div data-netlify-recaptcha="true"></div>
 
             <button type="submit" className="volunteer-button">
               Submit

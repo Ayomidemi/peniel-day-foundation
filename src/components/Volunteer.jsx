@@ -20,7 +20,6 @@ const Volunteer = () => {
     salvation_story: "",
     Volunteer_reason: "",
   });
-  console.log(volunteer)
 
   const handleInputChange = (e) => {
     setVolunteer((previousDetails) => {
@@ -44,9 +43,7 @@ const Volunteer = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": event.target.getAttribute("name"),
-      // eslint-disable-next-line no-restricted-globals
-      ...name,
+        'form-name': 'volunteer', ...volunteer
       }),
     })
       .then((res) => {
@@ -90,6 +87,7 @@ const Volunteer = () => {
         }, 8000);
       });
   };
+  console.log(...volunteer)
 
   const handleCloseNotification = () => {
     setMessage({
@@ -130,6 +128,7 @@ const Volunteer = () => {
             method="POST"
             data-netlify="true"
             data-netlify-honeypot='bot-field'
+            data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="volunteer"></input>
@@ -238,6 +237,7 @@ const Volunteer = () => {
               id="message"
               required
             ></textarea>
+            <div data-netlify-recaptcha="true"></div>
 
             <button type="submit" className="volunteer-button">
               Submit
