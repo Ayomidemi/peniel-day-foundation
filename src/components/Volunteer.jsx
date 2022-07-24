@@ -20,6 +20,7 @@ const Volunteer = () => {
     salvation_story: "",
     Volunteer_reason: "",
   });
+  console.log(volunteer)
 
   const handleInputChange = (e) => {
     setVolunteer((previousDetails) => {
@@ -43,8 +44,9 @@ const Volunteer = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': 'volunteer',
-        ...volunteer
+        "form-name": event.target.getAttribute("name"),
+      // eslint-disable-next-line no-restricted-globals
+      ...name,
       }),
     })
       .then((res) => {
@@ -139,7 +141,7 @@ const Volunteer = () => {
               type="text"
               className="contact name"
               name="first_name"
-              placeholder="First name"
+              placeholder="First Name"
               value={volunteer.first_name}
               required
             />
@@ -149,7 +151,7 @@ const Volunteer = () => {
               className="contact name"
               name="last_name"
               value={volunteer.last_name}
-              placeholder="Last name"
+              placeholder="Last Name"
               required
             />
 

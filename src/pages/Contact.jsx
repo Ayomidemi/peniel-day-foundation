@@ -17,6 +17,7 @@ const Contact = () => {
     address: "",
     discussion: "",
   });
+  console.log(contact)
 
   const handleInputChange = (e) => {
     setContact((previousDetails) => {
@@ -47,8 +48,9 @@ const Contact = () => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": 'contact',
-        ...contact
+        "form-name": event.target.getAttribute("name"),
+        // eslint-disable-next-line no-restricted-globals
+        ...name,
       }),
     })
       .then((res) => {
