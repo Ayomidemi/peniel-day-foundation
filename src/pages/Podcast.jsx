@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {   faRightLong } from '@fortawesome/free-solid-svg-icons'
+import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
 import img1 from "../img/pod1.jpg";
 import img2 from "../img/grid1.jpg";
 import img3 from "../img/pod3.jpg";
 import img5 from "../img/foluso.jpg";
 import img4 from "../img/abimbola.jpg";
+import axios from "axios";
 
 const PodcastItem = ({ img, name = "", icon }) => {
   return (
@@ -15,7 +16,7 @@ const PodcastItem = ({ img, name = "", icon }) => {
       <div className="image-podcast">
         {" "}
         <img src={img} alt={name} />{" "}
-      </div>  
+      </div>
 
       <div className="podcast-details">
         <div className="podcast-name"> {name} </div>
@@ -34,17 +35,61 @@ const TeamMembers = ({ img, name = "", position = "" }) => {
         <img src={img} alt={name} />{" "}
       </div>
       <div className="names"> {name} </div>
-      <div style={{margin: '1rem'}}> </div> 
+      <div style={{ margin: "1rem" }}> </div>
     </div>
   );
 };
 
 const Podcast = () => {
+  const [podcast, setPodcast] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("https://peniel-server.herokuapp.com/podcast/api/podcast-list/")
+
+      .then((res) => {
+        setPodcast(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    return () => {};
+  }, []);
+
   return (
     <div className="podcast" id="navbar">
       <div className="podcast-banner">
         <h1>Podcast</h1>
       </div>
+      
+      {/* RECENT PODCAST */}
+      {/* RECENT PODCAST */}
+
+      <div className="podcast-title">
+        <h1>recent podcasts</h1>
+      </div>
+      {podcast.map((pod, i) => {
+        return (
+          <div className="podcast-container" key={pod}>
+            <PodcastItem
+              img={pod.image}
+              name={pod.title}
+              icon={
+                <a href={pod.link} target='_blank' rel="noreferrer">
+                  {" "}
+                  <FontAwesomeIcon icon={faRightLong} />
+                </a>
+              }
+            />
+          </div>
+        );
+      })}{" "}
+      : {loading && <h3 className="podcast-container"> One moment please... </h3>}
+
 
       {/* RECENT EPISODES */}
       {/* RECENT EPISODES */}
@@ -52,7 +97,6 @@ const Podcast = () => {
       <div className="podcast-title">
         <h1>recent episodes</h1>
       </div>
-
       <div className="podcast-container">
         <PodcastItem
           img={img1}
@@ -79,20 +123,17 @@ const Podcast = () => {
           name="peniel day "
           icon={
             <Link to="/peniel">
-            {" "}
-            <FontAwesomeIcon icon={faRightLong} />
-          </Link>
-        }
+              {" "}
+              <FontAwesomeIcon icon={faRightLong} />
+            </Link>
+          }
         />
       </div>
-
       {/* MEET OUR SPEAKERS */}
       {/* MEET OUR SPEAKERS */}
-
       <div className="podcast-title">
         <h1>meet our speakers</h1>
       </div>
-
       <div className="container2">
         <div className="column1">
           <TeamMembers img={img4} name="abimbola ayodele" />
