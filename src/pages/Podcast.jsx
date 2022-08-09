@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 
-import img1 from "../img/pod1.jpg";
-import img2 from "../img/grid1.jpg";
-import img3 from "../img/pod3.jpg";
+import img1 from "../img/maidencard.JPG";
+import img2 from "../img/penielcard.jpg";
+import img3 from "../img/summitcard.jpeg";
 import img5 from "../img/foluso.jpg";
 import img4 from "../img/abimbola.jpg";
 import axios from "axios";
@@ -91,11 +91,11 @@ const Podcast = () => {
       : {loading && <h3 className="podcast-container"> One moment please... </h3>}
 
 
-      {/* RECENT EPISODES */}
-      {/* RECENT EPISODES */}
+      {/* RECENT BLOGS */}
+      {/* RECENT BLOGS */}
 
       <div className="podcast-title">
-        <h1>recent episodes</h1>
+        <h1>recent blogs</h1>
       </div>
       <div className="podcast-container">
         <PodcastItem

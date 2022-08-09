@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from '@fortawesome/free-solid-svg-icons'
 
 
-import img1 from "../img/pod1.jpg";
-import img2 from "../img/grid1.jpg";
-import img3 from "../img/pod3.jpg";
+import img1 from "../img/maidencard.JPG";
+import img2 from "../img/penielcard.jpg";
+import img3 from "../img/summitcard.jpeg";
 
 import grid1 from "../img/grid1.jpg";
 import grid2 from "../img/grid2.jpg";
