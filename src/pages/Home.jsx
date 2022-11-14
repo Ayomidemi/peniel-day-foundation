@@ -1,20 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightLong } from '@fortawesome/free-solid-svg-icons'
+import { faRightLong } from "@fortawesome/free-solid-svg-icons";
+import client from "../client";
+import dateFormat from "dateformat";
 
-
-import img1 from "../img/maidencard.JPG";
-import img2 from "../img/penielcard.jpg";
-import img3 from "../img/summitcard.jpeg";
-
-import grid1 from "../img/grid1.jpg";
-import grid2 from "../img/grid2.jpg";
 import grid4 from "../img/logo2.png";
-import grid5 from "../img/homegrid5.jpg";
-import grid6 from "../img/homegrid11.jpg";
-import grid7 from "../img/grid4.jpg";
-import grid8 from "../img/homegrid6.jpg";
 import grid9 from "../img/logo.png";
 
 import grid11 from "../img/home2.jpg";
@@ -33,11 +24,8 @@ import grid26 from "../img/fre1.jpg";
 import grid27 from "../img/grid1.jpg";
 import grid28 from "../img/homegrid11.jpg";
 import grid29 from "../img/homegrid2.jpg";
-
-import news1 from "../img/news1.png";
-import news2 from "../img/news2.png";
-import abimbola from "../img/abimbola.jpg";
-import foluso from "../img/foluso.jpg";
+import groq from "groq";
+import GridContainer from "../components/GridContainer";
 
 const PodcastItem = ({ img, name = "", icon }) => {
   return (
@@ -57,10 +45,34 @@ const PodcastItem = ({ img, name = "", icon }) => {
 };
 
 const Home = () => {
+  const [numbers, setNumbers] = useState([]);
+  const [posts, setPosts] = useState(JSON.parse(localStorage.getItem("blogs")));
+
+  useEffect(() => {
+    if (localStorage.getItem("blogs")) {
+      setPosts(JSON.parse(localStorage.getItem("blogs")));
+    }
+  }, []);
+
+  const blogsOnly = posts[1].posts.slice(0, 3);
+
+  useEffect(() => {
+    client
+      .fetch(
+        groq`*[_type == 'numbers' ] {
+          livesSaved,
+  noOfScholarship,
+  teamOutreach
+         }`
+      )
+      .then((data) => {
+        setNumbers(data[0]);
+      })
+      .catch(console.error);
+  }, []);
+
   return (
     <div className="home" id="navbar">
-      {/* HOME BACKGROUND FIRST SECTION */}
-      {/* HOME BACKGROUND FIRST SECTION */}
       {/* HOME BACKGROUND FIRST SECTION */}
 
       <div className="first-section">
@@ -79,8 +91,7 @@ const Home = () => {
                 {" "}
                 <button className="btn-home"> Join Us</button>{" "}
               </Link>
-              <a href="https://paystack.com/pay/penielday"  target='blank'>
-               
+              <a href="https://paystack.com/pay/penielday" target="blank">
                 <button className="btn-home" style={{ background: "#009346" }}>
                   {" "}
                   Donate
@@ -93,59 +104,14 @@ const Home = () => {
 
       {/* FIRST GRID CONTAINER */}
       {/* FIRST GRID CONTAINER */}
-      {/* FIRST GRID CONTAINER */}
 
       <div className="grid-container">
-        <div className="box-grid">
-          <div className="grid1">
-            <div className="image">
-              {" "}
-              <img src={grid1} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid2} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              <div className="image-pen"> Peniel Day Foundation </div>
-            </div>
-            <div className="image">
-              <div className="image-penlogo">
-              {" "}
-              <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation{" "}
-            </div>
-            </div>
-            
-            <div className="image">
-              {" "}
-              <img src={grid5} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid6} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid7} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid8} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              <div className="image-logoo">
-              {" "}
-              <img src={grid9} alt="Peniel Day" />{" "}
-            </div>
-            </div>
-            
-          </div>
-        </div>
+        <GridContainer />
 
-        <div className="box-grid" >
+        <div className="box-grid">
           <h1>We are about doing good</h1>
 
-          <p >
+          <p>
             We live to exemplify Jesus who went about doing good to communities
             He visited. By the help of the Holy Spirit, we serve our target
             comminities with goodness. -Acts 10:38
@@ -177,7 +143,7 @@ const Home = () => {
               skills to be great citizens. -Matthew 5:1-2
             </p>
 
-            <a href="https://paystack.com/pay/penielday"  target='blank'>
+            <a href="https://paystack.com/pay/penielday" target="blank">
               <button className="btn-home" style={{ background: "#009346" }}>
                 {" "}
                 Donate
@@ -196,14 +162,14 @@ const Home = () => {
                 <img src={grid12} alt="Peniel Day" />{" "}
               </div>
               <div className="image">
-              <div className="image-logoo">
-              {" "}
-              <img src={grid9} alt="Peniel Day" />{" "}
-            </div>
-            </div>
-            <div className="image">
-              <div className="image-pen"> Peniel Day Foundation </div>
-            </div>
+                <div className="image-logoo">
+                  {" "}
+                  <img src={grid9} alt="Peniel Day" />{" "}
+                </div>
+              </div>
+              <div className="image">
+                <div className="image-pen"> Peniel Day Foundation </div>
+              </div>
               <div className="image">
                 {" "}
                 <img src={grid15} alt="Peniel Day" />{" "}
@@ -221,11 +187,11 @@ const Home = () => {
                 <img src={grid18} alt="Peniel Day" />{" "}
               </div>
               <div className="image">
-              <div className="image-penlogo">
-              {" "}
-              <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation{" "}
-            </div>
-            </div>
+                <div className="image-penlogo">
+                  {" "}
+                  <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation{" "}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -296,8 +262,6 @@ const Home = () => {
       </div>
 
       {/* PODCAST SECTION */}
-      {/* PODCAST SECTION */}
-      {/* PODCAST SECTION */}
 
       <div className="podcast-sect">
         <div className="podcast-sectext">
@@ -310,101 +274,46 @@ const Home = () => {
         </div>
 
         <div className="podcast-container">
-          <PodcastItem
-            img={img1}
-            name="our maiden event programme"
-            icon={
-              <Link to="/maiden">
-                {" "}
-                <FontAwesomeIcon icon={faRightLong} />
-              </Link>
-            }
-          />
-          <PodcastItem
-            img={img3}
-            name="summer leadership summit 2021"
-            icon={
-              <Link to="/leader">
-                {" "}
-                <FontAwesomeIcon icon={faRightLong} />
-              </Link>
-            }
-          />
-          <PodcastItem img={img2} name="peniel day" icon={
-          <Link to="/peniel">
-          {" "}
-          <FontAwesomeIcon icon={faRightLong} />
-        </Link>} />
+          {blogsOnly.map((post, i) => (
+            <React.Fragment key={i}>
+              <PodcastItem
+                img={post.cardImage.asset.url}
+                name={post.title}
+                icon={
+                  <Link to={`/podcast/${post.slug.current}`}>
+                    {" "}
+                    <FontAwesomeIcon icon={faRightLong} />
+                  </Link>
+                }
+              />
+            </React.Fragment>
+          ))}
         </div>
       </div>
 
       {/* HOW WE MEASURE IMPACT SECTION */}
-      {/* HOW WE MEASURE IMPACT SECTION */}
-      {/* HOW WE MEASURE IMPACT SECTION */}
 
       <div className="grid-container">
-        <div className="box-grid">
-          <div className="grid1">
-            <div className="image">
-              {" "}
-              <img src={grid1} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid2} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              <div className="image-pen"> Peniel Day Foundation </div>
-            </div>
-            <div className="image">
-              <div className="image-penlogo">
-              {" "}
-              <img src={grid4} alt="Peniel Day" /> Peniel Day Foundation{" "}
-            </div>
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid5} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid6} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid7} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              {" "}
-              <img src={grid8} alt="Peniel Day" />{" "}
-            </div>
-            <div className="image">
-              <div className="image-logoo">
-              {" "}
-              <img src={grid9} alt="Peniel Day" />{" "}
-            </div>
-            </div>
-          </div>
-        </div>
+        <GridContainer />
 
-        <div className="box-grid" style={{alignItems: 'center'}}>
-          <h1 style={{textAlign: 'center'}}>how we measure our impact</h1>
+        <div className="box-grid" style={{ alignItems: "center" }}>
+          <h1 style={{ textAlign: "center" }}>how we measure our impact</h1>
 
-          <p >We are always where others need help.</p>
+          <p>We are always where others need help.</p>
 
           <div className="counter">
             <div className="counter-content">
-              <h2>8+</h2>
+              <h2>{numbers.noOfScholarship}+</h2>
               <h3>No of Scholarship</h3>
             </div>
 
             <div className="counter-content">
-              <h2>95+</h2>
+              <h2>{numbers.livesSaved}+</h2>
               <h3>Lives Saved</h3>
             </div>
 
             <div className="counter-content">
-              <h2>5</h2>
+              <h2>{numbers.teamOutreach}</h2>
               <h3>Team Outreach</h3>
             </div>
           </div>
@@ -417,7 +326,7 @@ const Home = () => {
                 Join Us
               </button>{" "}
             </Link>
-            <a href="https://paystack.com/pay/penielday"  target='blank'>
+            <a href="https://paystack.com/pay/penielday" target="blank">
               <button className="btn-home" style={{ background: "#009346" }}>
                 {" "}
                 Donate
@@ -428,8 +337,6 @@ const Home = () => {
       </div>
 
       {/* NEWS AND ARTICLES SECTION */}
-      {/* NEWS AND ARTICLES SECTION */}
-      {/* NEWS AND ARTICLES SECTION */}
 
       <div className="articles">
         <div className="gradient">
@@ -437,135 +344,45 @@ const Home = () => {
         </div>
 
         <div className="news">
-          {/* NEWS SUMMER LEADERSHIP SUMMIT */}
-          {/* NEWS SUMMER LEADERSHIP SUMMIT */}
-
-          <div className="news-box">
-            <Link to="leader">
-              {" "}
-              <img src={news1} alt="Peniel Day" />{" "}
-            </Link>
-
-            <div className="news-box1">
-              <Link to="leader">
+          {blogsOnly.map((post, i) => (
+            <div className="news-box" key={i}>
+              <Link to={`/podcast/${post.slug.current}`}>
                 {" "}
-                <button className="btn-news" style={{ background: "#D4AF37" }}>
-                  Blog Post
-                </button>
+                <img src={post.cardImage.asset.url} alt="Peniel Day" />{" "}
               </Link>
 
-              <h1>summer leadership summit</h1>
+              <div className="news-box1">
+                <Link to={`/podcast/${post.slug.current}`}>
+                  {" "}
+                  <button
+                    className="btn-news"
+                    style={{ background: "#D4AF37" }}
+                  >
+                    Blog Post
+                  </button>
+                </Link>
 
-              <p>
-                In alignment with Peniel Day Foundation's vision to support
-                adolescents in prisons and on the streets with the aim of
-                shinning the light of Jesus to these ones, we recieved an invite
-                for partnership with the Word Assemble church, (The Leaders'
-                Place) Ogba Lagos, at the Summer Leadership Summit held between
-                2nd and 15th 2021...
-              </p>
+                <h1>{post.title}</h1>
 
-              <div className="news-bottom">
-                <img src={abimbola} alt="" />
-
-                <div className="hhs">
-                  <h4> Abimbola Ayodele</h4>
-                  <h4>
+                <p>
+                  {post.body[0].children[0].text}...{" "}
+                  <Link to={`/podcast/${post.slug.current}`}>
                     {" "}
-                    22nd October, 2021{" "}                    
-                  </h4>
-                </div>
-              </div> 
-            </div>
-          </div>
+                    <b>Read More</b>{" "}
+                  </Link>
+                </p>
 
-          {/* NEWS PENIEL DAY */}
-          {/* NEWS PENIEL DAY */}
+                <div className="news-bottom">
+                  <img src={post.author.image.asset.url} alt="" />
 
-          <div className="news-box">
-            <Link to="peniel">
-              {" "}
-              <img src={news2} alt="Peniel Day" />{" "}
-            </Link>
-
-            <div className="news-box1">
-              <Link to="peniel">
-                <button className="btn-news" style={{ background: "#009346" }}>
-                  Featured Post
-                </button>
-              </Link>
-
-              <h1>Peniel Day</h1>
-
-              <p>
-                The 3rd of December, 2017 was the first time I made a visit to
-                the confines of the juvenile center for boys in Nigeria. Prior
-                to that day, I do not think I paid sufficient attention to the
-                existence of correctional centers or juvenile centers in
-                Nigeria. But thanks to my membership in Goldmine ministry; a
-                youth outreach ministry in my church I had access to boys at the
-                center on that day...
-              </p>
-
-              <div className="news-bottom">
-                <img src={abimbola} alt="" />
-
-                <div className="hhs">
-                  <h4> Abimbola Ayodele</h4>
-                  <h4>
-                    {" "}
-                    22nd October, 2021{" "}
-                  </h4>
+                  <div className="hhs">
+                    <h4> {post.author.name} </h4>
+                    <h4> {dateFormat(post.publishedAt, "mmmm dS, yyyy")} </h4>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* NEWS RAISING LEADERS */}
-          {/* NEWS RAISING LEADERS */}
-
-          <div className="news-box">
-            <Link to="raising">
-              {" "}
-              <img src={news1} alt="Peniel Day" />{" "}
-            </Link>
-
-            <div className="news-box1">
-              <Link to="raising">
-                <button
-                  className="btn-news"
-                  style={{ background: "#D4AF37", border: "#D4AF37" }}
-                >
-                  Blog Post
-                </button>
-              </Link>
-
-              <h1>Raising Leaders</h1>
-
-              <p>
-                To raise involves responsiveness, nurturing, mentoring,
-                protection, and many other qualities you desire to add to the
-                list. Whether by a biological parent, foster parent, a teacher,
-                coach, or caregiver, it brings great joy and fulfillment to
-                watch an individual you had invested time, resources, and skills
-                in the right environment to become a great leader...
-              </p>
-
-              <div className="news-bottom">
-                <img src={foluso} alt="" />
-
-                <div className="hhs">
-                  <h4>Foluso Ajayi</h4>
-                  <h4>
-                    {" "}
-                    22nd October, 2021{" "}
-                  </h4>
-                </div>
-              </div>
-            </div>
-          </div>
-
-
+          ))}
         </div>
       </div>
     </div>

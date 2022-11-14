@@ -102,10 +102,9 @@
 .container2 {
   width: 80%;
   margin: 2rem auto;
-  flex-wrap: wrap;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 .column1 {
   display: flex;
@@ -118,11 +117,11 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    line-height: 23px;
   }
 }
 .pod-item {
   width: 25rem;
-  height: 60vh;
   padding: 0rem 0;
   margin: 2rem 1rem 1rem 1rem;
   position: relative;

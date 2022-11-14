@@ -2,13 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
-
-import img1 from "../img/maidencard.JPG";
-import img2 from "../img/penielcard.jpg";
-import img3 from "../img/summitcard.jpeg";
-import img5 from "../img/foluso.jpg";
-import img4 from "../img/abimbola.jpg";
-import axios from "axios";
+import groq from "groq";
+import client from "../client";
+import Spinner from "../components/Spinner";
 
 const PodcastItem = ({ img, name = "", icon }) => {
   return (
@@ -35,127 +31,149 @@ const TeamMembers = ({ img, name = "", position = "" }) => {
         <img src={img} alt={name} />{" "}
       </div>
       <div className="names"> {name} </div>
-      <div style={{ margin: "1rem" }}> </div>
     </div>
   );
 };
 
 const Podcast = () => {
-  const [podcast, setPodcast] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [author, setAuthor] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("https://peniel-server.herokuapp.com/podcast/api/podcast-list/")
-
-      .then((res) => {
-        setPodcast(res.data);
-        setLoading(false);
+    client
+      .fetch(
+        groq`*[_type == 'author' ] {
+          bio,
+       image {
+        asset -> {
+          id,
+          url
+        }
+       },
+       name
+         }`
+      )
+      .then((data) => {
+        setAuthor(data);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch(console.error);
+    setLoading(false);
+  }, []);
 
-    return () => {};
+  useEffect(() => {
+    client
+      .fetch(
+        groq`*[_type == 'category' ] {
+      name,
+      description,
+      "posts": *[_type == 'post' && references(^._id)] {
+        title,
+      slug,
+      body,
+      link,
+      publishedAt,
+      author -> {
+        name,
+        image {
+          asset -> {
+          url
+        }
+        }
+      },     
+      cardImage {
+        asset -> {
+          _id,
+          url
+        }
+      },
+      bannerImage {
+        asset -> {
+          _id,
+          url
+        }
+      },
+        mainImage {
+          asset -> {
+            _id,
+          url
+        },
+        alt
+        }
+      }
+    }`
+      )
+      .then((data) => {
+        localStorage.setItem("blogs", JSON.stringify(data));
+      })
+      .catch(console.error);
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    if (localStorage.getItem("blogs")) {
+      setPosts(JSON.parse(localStorage.getItem("blogs")));
+    }
   }, []);
 
   return (
     <div className="podcast" id="navbar">
-      <div className="podcast-banner">
-        <h1>Podcast</h1>
-      </div>
-      
-      {/* RECENT PODCAST */}
-      {/* RECENT PODCAST */}
-
-      <div className="podcast-title">
-        <h1>recent podcasts</h1>
-      </div>
-      {podcast.map((pod, i) => {
-        return (
-          <div className="podcast-container" key={pod}>
-            <PodcastItem
-              img={pod.image}
-              name={pod.title}
-              icon={
-                <a href={pod.link} target='_blank' rel="noreferrer">
-                  {" "}
-                  <FontAwesomeIcon icon={faRightLong} />
-                </a>
-              }
-            />
+      {loading ? (
+        <Spinner />
+      ) : (
+        <div>
+          <div className="podcast-banner">
+            <h1>Podcast</h1>
           </div>
-        );
-      })}{" "}
-      : {loading && <h3 className="podcast-container"> One moment please... </h3>}
-
-
-      {/* RECENT BLOGS */}
-      {/* RECENT BLOGS */}
-
-      <div className="podcast-title">
-        <h1>recent blogs</h1>
-      </div>
-      <div className="podcast-container">
-        <PodcastItem
-          img={img1}
-          name="our maiden event programme"
-          icon={
-            <Link to="/maiden">
-              {" "}
-              <FontAwesomeIcon icon={faRightLong} />
-            </Link>
-          }
-        />
-        <PodcastItem
-          img={img3}
-          name="summer leadership summit 2021"
-          icon={
-            <Link to="/leader">
-              {" "}
-              <FontAwesomeIcon icon={faRightLong} />
-            </Link>
-          }
-        />
-        <PodcastItem
-          img={img2}
-          name="peniel day "
-          icon={
-            <Link to="/peniel">
-              {" "}
-              <FontAwesomeIcon icon={faRightLong} />
-            </Link>
-          }
-        />
-      </div>
-      {/* MEET OUR SPEAKERS */}
-      {/* MEET OUR SPEAKERS */}
-      <div className="podcast-title">
-        <h1>meet our speakers</h1>
-      </div>
-      <div className="container2">
-        <div className="column1">
-          <TeamMembers img={img4} name="abimbola ayodele" />
-          <p>
-            Jesus Christ was specially anointed to bind the hearts of the broken
-            hearted and to bring liberty to people who may be in one form of
-            prison or the other. Be it an emotional, spiritual, or physical
-            prison Jesus Christ is able to break everyone one free only if we
-            let Him.
-          </p>
+          
+          {posts.map((pots, i) => (
+            <div key={i}>
+              <div className="category-sanity">
+                <div className="podcast-title">
+                  <h1>{pots.description}</h1>
+                </div>
+                <div className="podcast-container">
+                  {pots.posts.map((podcst, i) => (
+                    <PodcastItem
+                      key={i}
+                      img={podcst.cardImage.asset.url}
+                      name={podcst.title}
+                      icon={
+                        podcst.link === null ? (
+                          <Link to={`/podcast/${podcst.slug.current}`}>
+                            <FontAwesomeIcon icon={faRightLong} />
+                          </Link>
+                        ) : (
+                          <a
+                            href={podcst.link}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {" "}
+                            <FontAwesomeIcon icon={faRightLong} />
+                          </a>
+                        )
+                      }
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+          {/* MEET OUR SPEAKERS */}
+          <div className="podcast-title">
+            <h1>meet our speakers</h1>
+          </div>
+          <div className="container2">
+            {author.map((auth, i) => (
+              <div className="column1" key={i}>
+                <TeamMembers img={auth.image.asset.url} name={auth.name} />
+                <p>{auth.bio[0].children[0].text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-
-        <div className="column1">
-          <TeamMembers img={img5} name="foluso ajayi" />
-          <p>
-            We have read and we know of men and women who Jesus delivered from
-            one prison or the other. On this podcast, we would be taking you
-            through the journey of these prisoners who came to know complete
-            freedom through the help of Jesus Christ.
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

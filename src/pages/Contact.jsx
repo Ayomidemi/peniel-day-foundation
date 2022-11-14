@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import ToastNotification from "../components/ToastNotification";
 import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
+import Spinner from "../components/Spinner";
 
 const Contact = () => {
   const [submit, setSubmit] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({
     type: "",
     msg: "",
@@ -42,15 +44,19 @@ const Contact = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmit(true);
+    setLoading(true);
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": 'contact', ...contact
+        "form-name": "contact",
+        ...contact,
       }),
     })
       .then((res) => {
+        setLoading(false);
+
         setMessage({
           type: "success",
           msg: res.message,
@@ -74,6 +80,8 @@ const Contact = () => {
       })
 
       .catch((err) => {
+        setLoading(false);
+
         setSubmit(false);
         setMessage({
           type: "error",
@@ -91,6 +99,8 @@ const Contact = () => {
 
   return (
     <div className="volunteer" id="navbar">
+      {loading && <Spinner />}
+
       <div className="volunteer-banner">
         <h1>Contact Us </h1>
       </div>
@@ -120,13 +130,15 @@ const Contact = () => {
             name="contact"
             action="/"
             data-netlify="true"
-            data-netlify-honeypot='bot-field'
+            data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="contact"></input>
-            <div hidden><input name="bot-field" /></div>
-            
+            <div hidden>
+              <input name="bot-field" />
+            </div>
+
             <label htmlFor="fname">Name</label>
             <input
               onChange={handleInputChange}

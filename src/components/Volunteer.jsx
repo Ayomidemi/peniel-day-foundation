@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import ToastNotification from "./ToastNotification";
 import { faCheckCircle, faWarning } from "@fortawesome/free-solid-svg-icons";
+import Spinner from "./Spinner";
 
 const Volunteer = () => {
   const [submit, setSubmit] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({
     type: "",
     msg: "",
@@ -38,15 +40,18 @@ const Volunteer = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmit(true);
+    setLoading(true);
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': 'volunteer', ...volunteer
+        "form-name": "volunteer",
+        ...volunteer,
       }),
     })
       .then((res) => {
+        setLoading(false);
         setMessage({
           type: "success",
           msg: res.message,
@@ -74,6 +79,7 @@ const Volunteer = () => {
 
       .catch((err) => {
         setSubmit(false);
+        setLoading(false);
         setMessage({
           type: "error",
           msg: err.message,
@@ -97,6 +103,7 @@ const Volunteer = () => {
 
   return (
     <div className="volunteer">
+      {loading && <Spinner />}
       <div className="volunteer-banner">
         <h1>Volunteer </h1>
       </div>
@@ -106,7 +113,7 @@ const Volunteer = () => {
           text={
             message.type === "error"
               ? message.msg
-              : "Form successfully submitted. God bless you!"
+              : "Thanks for volunteering! We'll reach out shortly."
           }
           onclick={handleCloseNotification}
           icon={message.type === "success" ? faCheckCircle : faWarning}
@@ -123,15 +130,17 @@ const Volunteer = () => {
 
           <form
             name="volunteer"
-            action='/'
+            action="/"
             method="POST"
             data-netlify="true"
-            data-netlify-honeypot='bot-field'
+            data-netlify-honeypot="bot-field"
             data-netlify-recaptcha="true"
             onSubmit={handleSubmit}
           >
             <input type="hidden" name="form-name" value="volunteer"></input>
-            <div hidden><input name="bot-field" /></div>
+            <div hidden>
+              <input name="bot-field" />
+            </div>
 
             <label htmlFor="fname">Name</label>
             <input
