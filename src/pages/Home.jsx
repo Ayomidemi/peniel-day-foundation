@@ -71,6 +71,12 @@ const Home = () => {
       .catch(console.error);
   }, []);
 
+  useEffect(() => {
+      if (blogsOnly === null) {
+        window.location.reload();
+      }
+  }, [blogsOnly]);
+
   return (
     <div className="home" id="navbar">
       {/* HOME BACKGROUND FIRST SECTION */}
