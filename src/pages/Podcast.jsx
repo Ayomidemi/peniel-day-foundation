@@ -104,17 +104,13 @@ const Podcast = () => {
     }`
       )
       .then((data) => {
-        localStorage.setItem("blogs", JSON.stringify(data));
+        setPosts(data)
       })
       .catch(console.error);
     setLoading(false);
   }, []);
 
-  useEffect(() => {
-    if (localStorage.getItem("blogs")) {
-      setPosts(JSON.parse(localStorage.getItem("blogs")));
-    }
-  }, []);
+  console.log(posts);
 
   return (
     <div className="podcast" id="navbar">

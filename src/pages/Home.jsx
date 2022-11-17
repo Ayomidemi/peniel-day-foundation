@@ -46,15 +46,8 @@ const PodcastItem = ({ img, name = "", icon }) => {
 
 const Home = () => {
   const [numbers, setNumbers] = useState([]);
-  const [posts, setPosts] = useState(JSON.parse(localStorage.getItem("blogs")));
-
-  useEffect(() => {
-    if (localStorage.getItem("blogs")) {
-      setPosts(JSON.parse(localStorage.getItem("blogs")));
-    }
-  }, []);
-
-  const blogsOnly = posts[1].posts.slice(0, 3);
+  const [posts, setPosts] = useState([]);
+  const [blogsOnly, setBlogsOnly] = useState([])
 
   useEffect(() => {
     client
@@ -72,10 +65,60 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-      if (blogsOnly === null) {
-        window.location.reload();
+    client
+      .fetch(
+        groq`*[_type == 'category' ] {
+      name,
+      description,
+      "posts": *[_type == 'post' && references(^._id)] {
+        title,
+      slug,
+      body,
+      link,
+      publishedAt,
+      author -> {
+        name,
+        image {
+          asset -> {
+          url
+        }
+        }
+      },     
+      cardImage {
+        asset -> {
+          _id,
+          url
+        }
+      },
+      bannerImage {
+        asset -> {
+          _id,
+          url
+        }
+      },
+        mainImage {
+          asset -> {
+            _id,
+          url
+        },
+        alt
+        }
       }
-  }, [blogsOnly]);
+    }`
+      )
+      .then((data) => {
+        setPosts(data);
+      })
+      .catch(console.error);
+  }, []);
+
+  useEffect(() => {
+    if (posts.length !== 0) {
+  setBlogsOnly(posts[1].posts.slice(0, 3))
+    }
+  }, [posts]);
+
+
 
   return (
     <div className="home" id="navbar">
