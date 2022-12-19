@@ -4,7 +4,7 @@
   position: relative;
 }
 .first-section {
-  height: 90vh;
+  height: calc(100vh - 80px);
   left: 0;
   top: 0;
   width: 100%;
@@ -18,7 +18,7 @@
 }
 .outer {
   position: absolute;
-  height: 90vh;
+  height: calc(100vh - 80px);
   left: 0;
   top: 0;
   width: 100%;
@@ -459,5 +459,14 @@
   img {
     width: 50% !important;
     height: 60% !important;
+  }
+}
+
+// 25EM
+// 25EM
+
+@media (max-width: 25em) {
+  .btn-home {
+    width: 5.5rem;
   }
 }

@@ -302,7 +302,7 @@ const Home = () => {
 
           <Link to="ourcause">
             {" "}
-            <button className="btn-home" style={{ background: "#009346" }}>
+            <button className="btn-home" style={{ background: "#009346", width: '7.5rem' }}>
               {" "}
               Learn More
             </button>{" "}
