@@ -1,11 +1,10 @@
-import {
-  Facebook,
-  Instagram,
-  Twitter,
-  YouTube,
-} from "@material-ui/icons";
+import { Facebook, Instagram, Twitter, YouTube } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faEnvelope, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
+import {
+  faEnvelope,
+  faLocationDot,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../img/logo.png";
@@ -23,12 +22,10 @@ const Footer = () => {
       </div>
 
       <div className="footer-container">
-
         {/* MOBILE VIEW */}
         {/* MOBILE VIEW */}
 
         <div className="footer-mobile">
-
           <div className="footer-mobile-first-section">
             <div className="logo">
               <Link to="/">
@@ -41,36 +38,39 @@ const Footer = () => {
 
           <div className="footer-mobile-second-seec">
             <h3>Be part of making a difference.</h3>
-        <Link to="volunteer">
-          <button className="footer-button">Volunteer</button>
-        </Link>
+            <Link to="volunteer">
+              <button className="footer-button">Volunteer</button>
+            </Link>
           </div>
 
-        <div className="mobile-links"> 
-          <Link to="/">Home </Link>
-        <Link to="whatwedo">Programs </Link>
-        <Link to="contact">Contact </Link>
-        <a href="https://paystack.com/pay/penielday"  target='blank'> Donation </a>
-        </div>
+          <div className="mobile-links">
+            <Link to="/">Home </Link>
+            <Link to="whatwedo">Programs </Link>
+            <Link to="contact">Contact </Link>
+            <a href="https://paystack.com/pay/penielday" target="blank">
+              {" "}
+              Donation{" "}
+            </a>
+            <p>RC: 160605</p>
+          </div>
 
-        <div className="footer-mobile-icons">
-              <a href="https://www.facebook.com/PenielDayFoundation/">
-                <Facebook className="icons" />
-              </a>
+          <div className="footer-mobile-icons">
+            <a href="https://www.facebook.com/PenielDayFoundation/">
+              <Facebook className="icons" />
+            </a>
 
-              <a href="https://www.instagram.com/penielday/">
-                <Instagram className="icons" />
-              </a>
+            <a href="https://www.instagram.com/penielday/">
+              <Instagram className="icons" />
+            </a>
 
-              <a href="https://twitter.com/PenielDay">
-                <Twitter className="icons" />
-              </a>
+            <a href="https://twitter.com/PenielDay">
+              <Twitter className="icons" />
+            </a>
 
-              <a href="https://www.youtube.com/channel/UCwE5wfv3rwMTAkN74UMWFNw/channels">
-                <YouTube className="icons" />
-              </a>
-            </div>
-        
+            <a href="https://www.youtube.com/channel/UCwE5wfv3rwMTAkN74UMWFNw/channels">
+              <YouTube className="icons" />
+            </a>
+          </div>
         </div>
 
         {/* DESKTOP VIEW */}
@@ -85,7 +85,7 @@ const Footer = () => {
             </div>
 
             <p>Shining the light of Jesus through adolescents in Nigeria.</p>
- 
+
             <div className="footer-icons">
               <a href="https://www.facebook.com/PenielDayFoundation/">
                 <Facebook className="icons" />
@@ -108,16 +108,16 @@ const Footer = () => {
           <div className="footer-middle">
             <div className="list-title">contact us</div>
             <div className="lit">
-            <FontAwesomeIcon icon={faPhone} className="icons-middle"/>
-            <a href="tel:+2347031110531">+234 (0) 703 111 0531</a>
+              <FontAwesomeIcon icon={faPhone} className="icons-middle" />
+              <a href="tel:+2347031110531">+234 (0) 703 111 0531</a>
             </div>
             <div className="lit">
-            <FontAwesomeIcon icon={faEnvelope} className="icons-middle"/>
-            <a href="mailto:light@penielday.org">light@penielday.org</a>
+              <FontAwesomeIcon icon={faEnvelope} className="icons-middle" />
+              <a href="mailto:light@penielday.org">light@penielday.org</a>
             </div>
             <div className="lit">
-            <FontAwesomeIcon icon={faLocationDot} className="icons-middle"/>
-               Lagos, Nigeria{" "}
+              <FontAwesomeIcon icon={faLocationDot} className="icons-middle" />
+              Lagos, Nigeria{" "}
             </div>
           </div>
 
@@ -140,7 +140,10 @@ const Footer = () => {
               </div>
               <div className="list">
                 {" "}
-                <a href="https://paystack.com/pay/penielday"  target='blank'> Donation </a>
+                <a href="https://paystack.com/pay/penielday" target="blank">
+                  {" "}
+                  Donation{" "}
+                </a>
               </div>
               <div className="list">
                 <Link to="contact"> Contact Us </Link>{" "}
@@ -148,10 +151,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-  
+
         <div className="bottom">
           <span>
             &copy; {new Date().getFullYear()} Peniel Day. All rights reserved.
+            RC: 160605
           </span>
         </div>
       </div>

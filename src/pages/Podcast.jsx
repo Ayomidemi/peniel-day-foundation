@@ -38,7 +38,6 @@ const TeamMembers = ({ img, name = "", position = "" }) => {
 const Podcast = () => {
   const [posts, setPosts] = useState([]);
   const [author, setAuthor] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     client
@@ -58,7 +57,6 @@ const Podcast = () => {
         setAuthor(data);
       })
       .catch(console.error);
-    setLoading(false);
   }, []);
 
   useEffect(() => {
@@ -104,72 +102,62 @@ const Podcast = () => {
     }`
       )
       .then((data) => {
-        setPosts(data)
+        setPosts(data);
       })
       .catch(console.error);
-    setLoading(false);
   }, []);
-
-  console.log(posts);
 
   return (
     <div className="podcast" id="navbar">
-      {loading ? (
-        <Spinner />
-      ) : (
-        <div>
-          <div className="podcast-banner">
-            <h1>Podcast</h1>
-          </div>
-          
-          {posts.map((pots, i) => (
-            <div key={i}>
-              <div className="category-sanity">
-                <div className="podcast-title">
-                  <h1>{pots.description}</h1>
-                </div>
-                <div className="podcast-container">
-                  {pots.posts.map((podcst, i) => (
-                    <PodcastItem
-                      key={i}
-                      img={podcst.cardImage.asset.url}
-                      name={podcst.title}
-                      icon={
-                        podcst.link === null ? (
-                          <Link to={`/podcast/${podcst.slug.current}`}>
-                            <FontAwesomeIcon icon={faRightLong} />
-                          </Link>
-                        ) : (
-                          <a
-                            href={podcst.link}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {" "}
-                            <FontAwesomeIcon icon={faRightLong} />
-                          </a>
-                        )
-                      }
-                    />
-                  ))}
-                </div>
+      {posts.length === 0 && <Spinner />}
+      <div>
+        <div className="podcast-banner">
+          <h1>Podcast</h1>
+        </div>
+
+        {posts.map((pots, i) => (
+          <div key={i}>
+            <div className="category-sanity">
+              <div className="podcast-title">
+                <h1>{pots.description}</h1>
+              </div>
+              <div className="podcast-container">
+                {pots.posts.map((podcst, i) => (
+                  <PodcastItem
+                    key={i}
+                    img={podcst.cardImage.asset.url}
+                    name={podcst.title}
+                    icon={
+                      podcst.link === null ? (
+                        <Link to={`/podcast/${podcst.slug.current}`}>
+                          <FontAwesomeIcon icon={faRightLong} />
+                        </Link>
+                      ) : (
+                        <a href={podcst.link} target="_blank" rel="noreferrer">
+                          {" "}
+                          <FontAwesomeIcon icon={faRightLong} />
+                        </a>
+                      )
+                    }
+                  />
+                ))}
               </div>
             </div>
-          ))}
-          {/* MEET OUR SPEAKERS */}
-          <div className="podcast-title">
-            <h1>meet our speakers</h1>
           </div>
-          <div className="container2">
-            {author.map((auth, i) => (
-              <div className="column1" key={i}>
-                <TeamMembers img={auth.image.asset.url} name={auth.name} />
-                <p>{auth.bio[0].children[0].text}</p>
-              </div>
-            ))}
-          </div>
+        ))}
+        {/* MEET OUR SPEAKERS */}
+        <div className="podcast-title">
+          <h1>meet our speakers</h1>
         </div>
-      )}
+        <div className="container2">
+          {author.map((auth, i) => (
+            <div className="column1" key={i}>
+              <TeamMembers img={auth.image.asset.url} name={auth.name} />
+              <p>{auth.bio[0].children[0].text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

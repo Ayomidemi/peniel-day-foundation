@@ -26,6 +26,7 @@ import grid28 from "../img/homegrid11.jpg";
 import grid29 from "../img/homegrid2.jpg";
 import groq from "groq";
 import GridContainer from "../components/GridContainer";
+import Spinner from "../components/Spinner";
 
 const PodcastItem = ({ img, name = "", icon }) => {
   return (
@@ -47,7 +48,7 @@ const PodcastItem = ({ img, name = "", icon }) => {
 const Home = () => {
   const [numbers, setNumbers] = useState([]);
   const [posts, setPosts] = useState([]);
-  const [blogsOnly, setBlogsOnly] = useState([])
+  const [blogsOnly, setBlogsOnly] = useState([]);
 
   useEffect(() => {
     client
@@ -114,14 +115,13 @@ const Home = () => {
 
   useEffect(() => {
     if (posts.length !== 0) {
-  setBlogsOnly(posts[1].posts.slice(0, 3))
+      setBlogsOnly(posts[1].posts.slice(0, 3));
     }
   }, [posts]);
 
-
-
   return (
     <div className="home" id="navbar">
+      {blogsOnly.length === 0 && <Spinner />}
       {/* HOME BACKGROUND FIRST SECTION */}
 
       <div className="first-section">
@@ -427,6 +427,7 @@ const Home = () => {
                   <div className="hhs">
                     <h4> {post.author.name} </h4>
                     <h4> {dateFormat(post.publishedAt, "mmmm dS, yyyy")} </h4>
+                    {post.publishedAt === undefined && <Spinner />}
                   </div>
                 </div>
               </div>
