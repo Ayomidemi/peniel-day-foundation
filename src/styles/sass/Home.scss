@@ -44,12 +44,14 @@
   }
 }
 .box-home {
-  justify-content: space-around;
+  display: flex;
+  justify-content: center;
+  // gap: 1rem;
   margin-top: 3rem;
 }
 .btn-home {
   cursor: pointer;
-  width: 12rem;
+  width: 10rem;
   background: transparent;
   color: white;
   padding: 15px;
@@ -59,6 +61,9 @@
   transition: all 0.2s ease;
   font-size: 16px;
   margin-right: 1rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
 }
 .grid-container {
   width: 80%;

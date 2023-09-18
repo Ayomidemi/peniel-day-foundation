@@ -3,12 +3,11 @@ import React from "react";
 import img1 from "../img/esther1.jpg";
 import img2 from "../img/abimbola.jpg";
 import img3 from "../img/peter.jpg";
-import img4 from "../img/esther2.jpg";
 import img5 from "../img/tobiloba.jpg";
 import img6 from "../img/foluso.jpg";
 import img7 from "../img/opeyemi.jpg";
 import img8 from "../img/oluwatomisin.jpg";
-import img9 from "../img/faith.jpg";  
+import img9 from "../img/faith.jpg";
 
 const TeamMembers = ({ img, name = "", position = "" }) => {
   return (
@@ -19,7 +18,7 @@ const TeamMembers = ({ img, name = "", position = "" }) => {
       </div>
       <div className="names-details">
         <div className="names"> {name} </div>
-      <div className="position"> {position} </div>
+        <div className="position"> {position} </div>
       </div>
     </div>
   );
@@ -48,15 +47,11 @@ const Team = () => {
           name="peter akerele"
           position="secretary, board of trustees & team lead intercessory team "
         />
-        <TeamMembers
-          img={img4}
-          name="ester olulana"
-          position="member, board of trustees & team lead outreach team"
-        />
+
         <TeamMembers
           img={img5}
           name="tobiloba fasunhan"
-          position="member, board of trustees & assistant team lead outreach team"
+          position="member, board of trustees"
         />
         <TeamMembers
           img={img6}

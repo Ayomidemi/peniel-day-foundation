@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightLong } from "@fortawesome/free-solid-svg-icons";
 import client from "../client";
 import dateFormat from "dateformat";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 import grid4 from "../img/logo2.png";
 import grid9 from "../img/logo.png";
@@ -49,6 +52,18 @@ const Home = () => {
   const [numbers, setNumbers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [blogsOnly, setBlogsOnly] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   useEffect(() => {
     client
@@ -121,9 +136,7 @@ const Home = () => {
 
   return (
     <div className="home" id="navbar">
-      {blogsOnly.length === 0 && <Spinner />}
       {/* HOME BACKGROUND FIRST SECTION */}
-
       <div className="first-section">
         <div className="outer">
           <div className="first-details">
@@ -140,12 +153,53 @@ const Home = () => {
                 {" "}
                 <button className="btn-home"> Join Us</button>{" "}
               </Link>
-              <a href="https://paystack.com/pay/penielday" target="blank">
-                <button className="btn-home" style={{ background: "#009346" }}>
-                  {" "}
-                  Donate
-                </button>
-              </a>
+
+              <div>
+                <div
+                  className="btn-home"
+                  style={{ backgroundColor: "#009346", padding: "0px" }}
+                >
+                  <Button
+                    aria-describedby={id}
+                    variant="contained"
+                    onClick={handleClick}
+                    style={{
+                      backgroundColor: "transparent",
+                      color: "#fff",
+                      padding: "15px",
+                      fontSize: "16px",
+                      textTransform: "capitalize",
+                      borderRadius: "8px",
+                      width: "100%",
+                      boxShadow: "none",
+                    }}
+                  >
+                    Donate
+                  </Button>
+                </div>
+
+                <Popover
+                  id={id}
+                  open={open}
+                  anchorEl={anchorEl}
+                  onClose={handleClose}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                >
+                  <a href="https://paystack.com/pay/penielday" target="blank">
+                    <Typography sx={{ py: 1, px: 2 }}>
+                      One-off Donation
+                    </Typography>
+                  </a>
+                  <a href="https://paystack.com/pay/qzu-t18m13" target="blank">
+                    <Typography sx={{ py: 1, px: 2 }}>
+                      Recurring Donation
+                    </Typography>
+                  </a>
+                </Popover>
+              </div>
             </div>
           </div>
         </div>
@@ -192,12 +246,55 @@ const Home = () => {
               skills to be great citizens. -Matthew 5:1-2
             </p>
 
-            <a href="https://paystack.com/pay/penielday" target="blank">
-              <button className="btn-home" style={{ background: "#009346" }}>
-                {" "}
-                Donate
-              </button>
-            </a>
+            <div>
+              <div
+                className="btn-home"
+                style={{ backgroundColor: "#009346", padding: "0px" }}
+              >
+                <Button
+                  aria-describedby={id}
+                  variant="contained"
+                  onClick={handleClick}
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#fff",
+                    padding: "15px",
+                    fontSize: "16px",
+                    textTransform: "capitalize",
+                    borderRadius: "8px",
+                    width: "100%",
+                    boxShadow: "none",
+                  }}
+                >
+                  Donate
+                </Button>
+              </div>
+
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                style={{
+                  boxShadow: "none",
+                }}
+              >
+                <a href="https://paystack.com/pay/penielday" target="blank">
+                  <Typography sx={{ py: 1, px: 2 }}>
+                    One-off Donation
+                  </Typography>
+                </a>
+                <a href="https://paystack.com/pay/qzu-t18m13" target="blank">
+                  <Typography sx={{ py: 1, px: 2 }}>
+                    Recurring Donation
+                  </Typography>
+                </a>
+              </Popover>
+            </div>
           </div>
 
           <div className="box-grid">
@@ -302,7 +399,10 @@ const Home = () => {
 
           <Link to="ourcause">
             {" "}
-            <button className="btn-home" style={{ background: "#009346", width: '7.5rem' }}>
+            <button
+              className="btn-home"
+              style={{ background: "#009346", width: "7.5rem" }}
+            >
               {" "}
               Learn More
             </button>{" "}
@@ -311,37 +411,39 @@ const Home = () => {
       </div>
 
       {/* PODCAST SECTION */}
+      {blogsOnly.length === 0 ? (
+        <Spinner />
+      ) : (
+        <div className="podcast-sect">
+          <div className="podcast-sectext">
+            <h1>Peniel day foundation programs</h1>
 
-      <div className="podcast-sect">
-        <div className="podcast-sectext">
-          <h1>Peniel day foundation programs</h1>
+            <p>
+              Read about the stories of the children we have helped and how we
+              helped them.
+            </p>
+          </div>
 
-          <p>
-            Read about the stories of the children we have helped and how we
-            helped them.
-          </p>
+          <div className="podcast-container">
+            {blogsOnly.map((post, i) => (
+              <React.Fragment key={i}>
+                <PodcastItem
+                  img={post.cardImage.asset.url}
+                  name={post.title}
+                  icon={
+                    <Link to={`/podcast/${post.slug.current}`}>
+                      {" "}
+                      <FontAwesomeIcon icon={faRightLong} />
+                    </Link>
+                  }
+                />
+              </React.Fragment>
+            ))}
+          </div>
         </div>
-
-        <div className="podcast-container">
-          {blogsOnly.map((post, i) => (
-            <React.Fragment key={i}>
-              <PodcastItem
-                img={post.cardImage.asset.url}
-                name={post.title}
-                icon={
-                  <Link to={`/podcast/${post.slug.current}`}>
-                    {" "}
-                    <FontAwesomeIcon icon={faRightLong} />
-                  </Link>
-                }
-              />
-            </React.Fragment>
-          ))}
-        </div>
-      </div>
+      )}
 
       {/* HOW WE MEASURE IMPACT SECTION */}
-
       <div className="grid-container">
         <GridContainer />
 
@@ -375,12 +477,53 @@ const Home = () => {
                 Join Us
               </button>{" "}
             </Link>
-            <a href="https://paystack.com/pay/penielday" target="blank">
-              <button className="btn-home" style={{ background: "#009346" }}>
-                {" "}
-                Donate
-              </button>
-            </a>
+
+            <div>
+              <div
+                className="btn-home"
+                style={{ backgroundColor: "#009346", padding: "0px" }}
+              >
+                <Button
+                  aria-describedby={id}
+                  variant="contained"
+                  onClick={handleClick}
+                  style={{
+                    backgroundColor: "transparent",
+                    color: "#fff",
+                    padding: "15px",
+                    fontSize: "16px",
+                    textTransform: "capitalize",
+                    borderRadius: "8px",
+                    width: "100%",
+                    boxShadow: "none",
+                  }}
+                >
+                  Donate
+                </Button>
+              </div>
+
+              <Popover
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+              >
+                <a href="https://paystack.com/pay/penielday" target="blank">
+                  <Typography sx={{ py: 1, px: 2 }}>
+                    One-off Donation
+                  </Typography>
+                </a>
+                <a href="https://paystack.com/pay/qzu-t18m13" target="blank">
+                  <Typography sx={{ py: 1, px: 2 }}>
+                    Recurring Donation
+                  </Typography>
+                </a>
+              </Popover>
+            </div>
           </div>
         </div>
       </div>

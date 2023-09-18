@@ -40,6 +40,7 @@ const Podcast = () => {
   const [author, setAuthor] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
     client
       .fetch(
         groq`*[_type == 'author' ] {
@@ -54,7 +55,7 @@ const Podcast = () => {
          }`
       )
       .then((data) => {
-        setAuthor(data);
+        if (isMounted) setAuthor(data);
       })
       .catch(console.error);
   }, []);
@@ -109,31 +110,31 @@ const Podcast = () => {
 
   return (
     <div className="podcast" id="navbar">
-      {posts.length === 0 && <Spinner />}
+      {posts?.length === 0 && <Spinner />}
       <div>
         <div className="podcast-banner">
           <h1>Podcast</h1>
         </div>
 
-        {posts.map((pots, i) => (
+        {posts?.map((pots, i) => (
           <div key={i}>
             <div className="category-sanity">
               <div className="podcast-title">
-                <h1>{pots.description}</h1>
+                <h1>{pots?.description}</h1>
               </div>
               <div className="podcast-container">
-                {pots.posts.map((podcst, i) => (
+                {pots?.posts?.map((podcst, i) => (
                   <PodcastItem
                     key={i}
-                    img={podcst.cardImage.asset.url}
-                    name={podcst.title}
+                    img={podcst?.cardImage?.asset?.url}
+                    name={podcst?.title}
                     icon={
                       podcst.link === null ? (
-                        <Link to={`/podcast/${podcst.slug.current}`}>
+                        <Link to={`/podcast/${podcst?.slug?.current}`}>
                           <FontAwesomeIcon icon={faRightLong} />
                         </Link>
                       ) : (
-                        <a href={podcst.link} target="_blank" rel="noreferrer">
+                        <a href={podcst?.link} target="_blank" rel="noreferrer">
                           {" "}
                           <FontAwesomeIcon icon={faRightLong} />
                         </a>
@@ -150,10 +151,10 @@ const Podcast = () => {
           <h1>meet our speakers</h1>
         </div>
         <div className="container2">
-          {author.map((auth, i) => (
+          {author?.map((auth, i) => (
             <div className="column1" key={i}>
-              <TeamMembers img={auth.image.asset.url} name={auth.name} />
-              <p>{auth.bio[0].children[0].text}</p>
+              <TeamMembers img={auth?.image?.asset?.url} name={auth?.name} />
+              <p>{auth?.bio && auth?.bio[0]?.children[0]?.text}</p>
             </div>
           ))}
         </div>
